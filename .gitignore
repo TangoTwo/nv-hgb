@@ -1,0 +1,15 @@
+# swo
+  # CLion
+**/.idea/
+**/cmake-build-debug/
+  # Output files
+*.exe
+
+# des
+  # VisualParadigm
+**/*.vpp.bak_*
+**/*.vux
+  # Word
+
+# general
+*.zip
