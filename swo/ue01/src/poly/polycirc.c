@@ -6,10 +6,11 @@
 /**
  * Prints a short guide for the command line
  * interface.
+ * @param prgm_name The name of the program (argv[0])
  */
-void print_cli_guide()
+void print_cli_guide(const char *prgm_name)
 {
-    printf("Program usage: polycirc <point> <point> <point> [<point> ...]\n");
+    printf("Program usage: %s <point> <point> <point> [<point> ...]\n", prgm_name);
     printf("\t- <point> = <x>:<y>.\n");
     printf("\t- <x> and <y> can be an arbitrary integer number.");
 }
@@ -18,7 +19,7 @@ int main(int argc, char *argv[])
 {
     if (argc < 4) {
         printf("polycirc needs at least 3 points to calculate the circumference!\n");
-        print_cli_guide();
+        print_cli_guide(argv[0]);
         return EXIT_FAILURE;
     }
 
