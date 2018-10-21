@@ -9,7 +9,8 @@
   # VisualParadigm
 **/*.vpp.bak_*
 **/*.vux
-  # Word
+  # IntelliJ
+*.iml
 
 # general
 *.zip
