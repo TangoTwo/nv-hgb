@@ -160,7 +160,7 @@ bool possible(int x, LengthsArray lengths, int *const counts, int n, SolutionFun
 void assertBool(bool expected, bool got, const char *name)
 {
     bool success = expected == got;
-    printf("@\tTest \"%s\" %s.", name, success ? "succeeded" : "failed");
+    printf("@Test \"%s\" %s.", name, success ? "succeeded" : "failed");
     if (!success) {
         printf(" Expected %d, got %d.", expected, got);
     }

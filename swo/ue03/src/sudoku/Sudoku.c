@@ -139,8 +139,7 @@ bool is_partial_solution(Possibilities possibles, SudokuField sudoku_field, size
     size_t box_row = sudoku_field.row / 3;
     size_t box_col = sudoku_field.col / 3; // intended division, NO MODULO!
     size_t box_index = box_row * 3 + box_col;
-    return solution >= first_possible_value(possibles, &sudoku_field) &&
-           check(possibles, solution, each_column_in_row, sudoku_field.row) &&
+    return check(possibles, solution, each_column_in_row, sudoku_field.row) &&
            check(possibles, solution, each_row_in_column, sudoku_field.col) &&
            check(possibles, solution, each_field_in_box, box_index);
 }

@@ -23,7 +23,6 @@ typedef bool * *const *const Possibilities;
  */
 typedef size_t (*IndexCalculationFunction)(size_t, size_t);
 
-
 /**
  * Applies the supplied solution to a specified field in the sudoku.
  * @param possibles The array of possibilities for the sudoku.
