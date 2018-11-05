@@ -1,0 +1,337 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     13789,        329]
+NotebookOptionsPosition[     11810,        285]
+NotebookOutlinePosition[     12146,        300]
+CellTagsIndexPosition[     12103,        297]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+Niklas Vest - A15
+Eine Urne enth\[ADoubleDot]lt 1000 Lose, davon sind 10 Gewinnlose. Jemand \
+kauft 20 Lose.
+Wie wahrscheinlich ist es, dass sich unter den 20 gekauften Losen genau 1 \
+Gewinnlos findet?
+Berechnen Sie zun\[ADoubleDot]chst exakt (hypergeometrisch) und dann mittels \
+N\[ADoubleDot]herung durch Binomial-
+und Poissonverteilung. Wie gro\[SZ] sind die Fehler bei den \
+N\[ADoubleDot]herungen? Wenn die Anzahl der
+Lose reduziert wird, das Verh\[ADoubleDot]ltnis der Gewinnlose zu den Nieten \
+aber 1:99 bleiben soll, ab
+welcher Anzahl an Losen ist der Fehler der N\[ADoubleDot]herungen zum exakten \
+Ergebnis gr\[ODoubleDot]\[SZ]er als 1%?\
+\>", "Text",
+ CellChangeTimes->{{3.750424059901245*^9, 3.7504240955775347`*^9}, 
+   3.750430203686866*^9},ExpressionUUID->"f45a35e0-d33d-48fb-9fd8-\
+21d13d7b993d"],
+
+Cell[CellGroupData[{
+
+Cell["Using the hypergeometric distribution:", "Subsubtitle",
+ CellChangeTimes->{{3.75042424325274*^9, 
+  3.750424249573481*^9}},ExpressionUUID->"1fc9ddda-80c2-4ea9-b04b-\
+a6bd322ed0d7"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"hyge", "[", "n_", "]"}], ":=", 
+  RowBox[{"N", "[", 
+   RowBox[{
+    RowBox[{"Binomial", "[", 
+     RowBox[{
+      RowBox[{"n", "/", "100"}], ",", " ", "1"}], "]"}], " ", "*", " ", 
+    RowBox[{
+     RowBox[{"Binomial", "[", 
+      RowBox[{
+       RowBox[{"n", " ", "-", " ", 
+        RowBox[{"(", 
+         RowBox[{"n", "/", "100"}], ")"}]}], ",", " ", "19"}], "]"}], " ", 
+     "/", " ", 
+     RowBox[{"Binomial", "[", 
+      RowBox[{"n", ",", " ", "20"}], "]"}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7504204542075872`*^9, 3.7504205107382717`*^9}, {
+   3.750420600269927*^9, 3.75042061109518*^9}, {3.750420717862833*^9, 
+   3.7504207314546423`*^9}, {3.750421011219246*^9, 3.750421017442593*^9}, {
+   3.750421056737421*^9, 3.750421137625634*^9}, {3.750421397275412*^9, 
+   3.750421413180064*^9}, {3.75042144635487*^9, 3.750421446951832*^9}, {
+   3.750422196743909*^9, 3.7504221967996492`*^9}, {3.750422244958395*^9, 
+   3.75042224850285*^9}, 3.7504223574449883`*^9, 3.750422476197741*^9, {
+   3.750422557125435*^9, 3.750422586150895*^9}, {3.750422617798512*^9, 
+   3.7504226232148857`*^9}, {3.75042270702598*^9, 3.750422710042284*^9}, {
+   3.750422785547688*^9, 3.75042278954904*^9}, {3.750430338232327*^9, 
+   3.750430349670742*^9}},
+ CellLabel->"In[55]:=",ExpressionUUID->"2f4ca286-928c-4b1f-8f4f-5d1281036dc8"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"hyge", "[", "1000", "]"}]], "Input",
+ CellChangeTimes->{{3.750421148427453*^9, 3.7504211499468327`*^9}, {
+  3.75042263161064*^9, 3.7504226346566753`*^9}, {3.7504227167171383`*^9, 
+  3.75042273284486*^9}},
+ CellLabel->"In[56]:=",ExpressionUUID->"0569e4b0-3225-486b-a8f1-9f666e75ef2f"],
+
+Cell[BoxData["0.16813963897553966`"], "Output",
+ CellChangeTimes->{{3.7504228007686253`*^9, 3.750422816813747*^9}, 
+   3.750422929194435*^9, 3.750424031480247*^9, 3.750430212819612*^9, 
+   3.750430359636451*^9, {3.750430725229867*^9, 3.750430740135417*^9}, 
+   3.750430808362907*^9, 3.750430843635302*^9, 3.7504308842464943`*^9, 
+   3.7504309223958607`*^9},
+ CellLabel->"Out[56]=",ExpressionUUID->"0f3c7a94-298f-4aea-806b-1d61bf3aa5df"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Using the binomial distribution:", "Subsubtitle",
+ CellChangeTimes->{{3.750424262678977*^9, 
+  3.7504242677282457`*^9}},ExpressionUUID->"dff398c6-34ee-4d61-b78e-\
+fb8dd91e94d5"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"bin", "[", "n_", "]"}], ":=", " ", 
+  RowBox[{"N", "[", 
+   RowBox[{
+    RowBox[{"Binomial", "[", 
+     RowBox[{"20", ",", " ", "1"}], "]"}], " ", "*", " ", 
+    RowBox[{"(", "0.01", ")"}], " ", "*", " ", 
+    RowBox[{
+     RowBox[{"(", "0.99", ")"}], "^", "19"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.750421086123789*^9, 3.750421130474187*^9}, {
+   3.750421475947774*^9, 3.7504215154406853`*^9}, {3.7504222741400013`*^9, 
+   3.750422277231456*^9}, 3.750422334073709*^9, {3.750422580075253*^9, 
+   3.750422623775364*^9}, 3.7504227043601294`*^9, 3.750422792125108*^9, {
+   3.750430377596169*^9, 3.750430393780266*^9}, {3.7504307643562737`*^9, 
+   3.750430803183661*^9}},
+ CellLabel->"In[57]:=",ExpressionUUID->"ef6e0df8-eb77-45e6-88e5-3fbb4a479cc4"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"bin", "[", "1000", "]"}]], "Input",
+ CellChangeTimes->{{3.750421520602269*^9, 3.750421522217559*^9}, {
+  3.750422608167025*^9, 3.750422628887748*^9}},
+ CellLabel->"In[58]:=",ExpressionUUID->"de894124-eddc-47d7-a6e1-bd50c9df970b"],
+
+Cell[BoxData["0.16523372476711728`"], "Output",
+ CellChangeTimes->{
+  3.750421522829711*^9, 3.75042234734265*^9, 3.750422929249136*^9, 
+   3.7504240315353403`*^9, 3.750430212866138*^9, {3.750430725281662*^9, 
+   3.750430740186617*^9}, 3.7504308084119263`*^9, 3.750430843687399*^9, 
+   3.750430884309906*^9, 3.750430922444799*^9},
+ CellLabel->"Out[58]=",ExpressionUUID->"a2e853f0-75d2-4313-9294-96edf22ca272"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Using the Poisson distribution:", "Subsubtitle",
+ CellChangeTimes->{{3.750424277568976*^9, 
+  3.750424283081884*^9}},ExpressionUUID->"5ac4775c-b575-497a-a844-\
+7f8694926cff"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"pois", "[", "n_", "]"}], ":=", 
+  RowBox[{"N", "[", 
+   RowBox[{
+    RowBox[{"E", "^", 
+     RowBox[{"-", 
+      RowBox[{"(", 
+       RowBox[{"2", "/", "10"}], ")"}]}]}], " ", "*", " ", 
+    RowBox[{"(", 
+     RowBox[{"2", "/", "10"}], ")"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7504219188301153`*^9, 3.750421996396926*^9}, {
+   3.750422293023044*^9, 3.750422314895191*^9}, {3.750422639642663*^9, 
+   3.750422668148583*^9}, 3.750422701809424*^9, {3.750422793860985*^9, 
+   3.75042279574883*^9}, 3.7504229132281303`*^9, {3.7504304860411797`*^9, 
+   3.750430677681307*^9}, {3.750431008554646*^9, 3.750431048718595*^9}},
+ CellLabel->"In[67]:=",ExpressionUUID->"915242d4-7847-427d-aeae-908c8f438782"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"pois", "[", "1000", "]"}]], "Input",
+ CellChangeTimes->{{3.7504219815275183`*^9, 3.750421983131435*^9}, {
+  3.7504226696451387`*^9, 3.7504226761898212`*^9}},
+ CellLabel->"In[68]:=",ExpressionUUID->"c3e03c07-db9a-49bf-b73b-b0e187c3f0f4"],
+
+Cell[BoxData["0.1637461506155964`"], "Output",
+ CellChangeTimes->{{3.750421983471601*^9, 3.750422003248849*^9}, 
+   3.750422321350176*^9, 3.750422676598412*^9, 3.750422929296975*^9, 
+   3.750424031586026*^9, 3.750430212919092*^9, 3.750430690996554*^9, {
+   3.750430725334927*^9, 3.7504307402352333`*^9}, 3.750430808451305*^9, 
+   3.750430843734733*^9, 3.7504308843626957`*^9, 3.750430922485066*^9, {
+   3.7504310362396603`*^9, 3.750431050944891*^9}},
+ CellLabel->"Out[68]=",ExpressionUUID->"a8fe61d8-6d0b-469b-995e-22c06e6b8a74"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Error with x tickets:", "Subsubtitle",
+ CellChangeTimes->{{3.750424305020405*^9, 
+  3.750424318302889*^9}},ExpressionUUID->"dce6f1d1-c4e0-41d5-b928-\
+1c181600ff08"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{"x", ",", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{"\"\<hyper geometric:\>\"", ",", " ", 
+       RowBox[{"hyge", "[", "x", "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{"\"\<binomial:\>\"", ",", 
+       RowBox[{"bin", "[", "x", "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{"\"\<poisson:\>\"", ",", 
+       RowBox[{"pois", "[", "x", "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{"\"\<Error\>\"", ",", 
+       RowBox[{"Mean", "[", 
+        RowBox[{"{", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"Abs", "[", 
+           RowBox[{
+            RowBox[{"hyge", "[", "x", "]"}], " ", "-", " ", 
+            RowBox[{"bin", "[", "x", "]"}]}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Abs", "[", 
+           RowBox[{
+            RowBox[{"hyge", "[", "x", "]"}], " ", "-", " ", 
+            RowBox[{"pois", "[", "x", "]"}]}], "]"}]}], "\[IndentingNewLine]",
+          "}"}], "]"}]}], "}"}]}], "\[IndentingNewLine]", "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", " ", "1000", ",", " ", "100", ",", " ", "1"}], "}"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.7504228580237093`*^9, 3.750422898786425*^9}, {
+  3.7504229731497793`*^9, 3.7504231367129993`*^9}, {3.7504231849995213`*^9, 
+  3.750423229868178*^9}, {3.750423262489543*^9, 3.750423300757057*^9}, {
+  3.750423748247876*^9, 3.7504238426341457`*^9}, {3.75043073496975*^9, 
+  3.750430736384091*^9}, {3.750430821595809*^9, 3.75043086555228*^9}, {
+  3.750430918497086*^9, 3.750430918678895*^9}},
+ CellLabel->"In[62]:=",ExpressionUUID->"4f174125-d010-49f4-8e98-d8dac0b7af14"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`x$$ = 326, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`x$$], 1000, 100, 1}}, Typeset`size$$ = {
+    523.890625, {27., 14.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`x$11765$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`x$$ = 1000}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`x$$, $CellContext`x$11765$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> {$CellContext`x$$, {"hyper geometric:", 
+         $CellContext`hyge[$CellContext`x$$]}, {"binomial:", 
+         $CellContext`bin[$CellContext`x$$]}, {"poisson:", 
+         $CellContext`pois[$CellContext`x$$]}, {"Error", 
+         Mean[{
+           
+           Abs[$CellContext`hyge[$CellContext`x$$] - \
+$CellContext`bin[$CellContext`x$$]], 
+           
+           Abs[$CellContext`hyge[$CellContext`x$$] - \
+$CellContext`pois[$CellContext`x$$]]}]}}, 
+      "Specifications" :> {{$CellContext`x$$, 1000, 100, 1}}, "Options" :> {},
+       "DefaultOptions" :> {}],
+     ImageSizeCache->{571., {73., 80.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.750422899625276*^9, 3.750422929336158*^9}, {
+   3.7504229756120977`*^9, 3.750422988146719*^9}, 3.7504230225539207`*^9, {
+   3.750423186850462*^9, 3.7504233074037123`*^9}, {3.7504237491716957`*^9, 
+   3.750423799003068*^9}, 3.750423843987022*^9, {3.750424019054575*^9, 
+   3.750424031630924*^9}, 3.75043021297971*^9, 3.750430725380831*^9, 
+   3.7504308085010777`*^9, 3.750430843789773*^9, 3.75043088441391*^9, {
+   3.7504309225378017`*^9, 3.750430933786069*^9}},
+ CellLabel->"Out[62]=",ExpressionUUID->"ea1d310e-38ec-4c12-b1e0-410192232a1e"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{955, 1263},
+WindowMargins->{{Automatic, 493}, {62, Automatic}},
+FrontEndVersion->"11.3 for Linux x86 (64-bit) (March 6, 2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 825, 17, 173, "Text",ExpressionUUID->"f45a35e0-d33d-48fb-9fd8-21d13d7b993d"],
+Cell[CellGroupData[{
+Cell[1408, 41, 186, 3, 32, "Subsubtitle",ExpressionUUID->"1fc9ddda-80c2-4ea9-b04b-a6bd322ed0d7"],
+Cell[1597, 46, 1357, 28, 31, "Input",ExpressionUUID->"2f4ca286-928c-4b1f-8f4f-5d1281036dc8"],
+Cell[CellGroupData[{
+Cell[2979, 78, 307, 5, 31, "Input",ExpressionUUID->"0569e4b0-3225-486b-a8f1-9f666e75ef2f"],
+Cell[3289, 85, 436, 6, 35, "Output",ExpressionUUID->"0f3c7a94-298f-4aea-806b-1d61bf3aa5df"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3774, 97, 183, 3, 32, "Subsubtitle",ExpressionUUID->"dff398c6-34ee-4d61-b78e-fb8dd91e94d5"],
+Cell[3960, 102, 789, 16, 31, "Input",ExpressionUUID->"ef6e0df8-eb77-45e6-88e5-3fbb4a479cc4"],
+Cell[CellGroupData[{
+Cell[4774, 122, 253, 4, 31, "Input",ExpressionUUID->"de894124-eddc-47d7-a6e1-bd50c9df970b"],
+Cell[5030, 128, 408, 6, 35, "Output",ExpressionUUID->"a2e853f0-75d2-4313-9294-96edf22ca272"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5487, 140, 180, 3, 32, "Subsubtitle",ExpressionUUID->"5ac4775c-b575-497a-a844-7f8694926cff"],
+Cell[5670, 145, 738, 16, 31, "Input",ExpressionUUID->"915242d4-7847-427d-aeae-908c8f438782"],
+Cell[CellGroupData[{
+Cell[6433, 165, 260, 4, 31, "Input",ExpressionUUID->"c3e03c07-db9a-49bf-b73b-b0e187c3f0f4"],
+Cell[6696, 171, 529, 7, 35, "Output",ExpressionUUID->"a8fe61d8-6d0b-469b-995e-22c06e6b8a74"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7274, 184, 170, 3, 32, "Subsubtitle",ExpressionUUID->"dce6f1d1-c4e0-41d5-b928-1c181600ff08"],
+Cell[CellGroupData[{
+Cell[7469, 191, 1783, 38, 239, "Input",ExpressionUUID->"4f174125-d010-49f4-8e98-d8dac0b7af14"],
+Cell[9255, 231, 2527, 50, 172, "Output",ExpressionUUID->"ea1d310e-38ec-4c12-b1e0-410192232a1e"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

@@ -1,0 +1,209 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      7433,        201]
+NotebookOptionsPosition[      5768,        165]
+NotebookOutlinePosition[      6104,        180]
+CellTagsIndexPosition[      6061,        177]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+Niklas Vest - A14
+Ein dreimotoriges Flugzeug st\[UDoubleDot]rzt ab, wenn der Hauptmotor in der \
+Mitte ausf\[ADoubleDot]llt oder beide
+Seitenmotoren ausfallen (mindestens - d.h. das Flugzeug st\[UDoubleDot]rzt \
+auch ab, wenn mehr als die
+angegebenen Motoren ausfallen). Wenn jeder der Flugzeugmotoren mit der \
+Wahrscheinlichkeit
+p auf einem bestimmten Flug ausf\[ADoubleDot]llt und unter der Annahme der \
+Unabh\[ADoubleDot]ngigkeit f\[UDoubleDot]r das
+Eintreten der Defekte an den einzelnen Flugzeugmotoren berechne man die \
+Wahrscheinlichkeit
+daf\[UDoubleDot]r, dass ein dreimotoriges Flugzeug durch Motorversagen abst\
+\[UDoubleDot]rzt.\
+\>", "Text",
+ CellChangeTimes->{{3.750431241510848*^9, 
+  3.750431264025675*^9}},ExpressionUUID->"dba313c8-b3e8-4ec3-97fd-\
+56fe39b7ffa8"],
+
+Cell[CellGroupData[{
+
+Cell["Solution using binomial distribution", "Subsubtitle",
+ CellChangeTimes->{{3.750431381295786*^9, 
+  3.750431398002376*^9}},ExpressionUUID->"19d5a810-b0ec-42e9-bf76-\
+85265b6b658a"],
+
+Cell["The primary motor fails with a probability of", "Text",
+ CellChangeTimes->{{3.7504314037467747`*^9, 3.750431415228203*^9}, {
+  3.7504316552107058`*^9, 
+  3.750431655722733*^9}},ExpressionUUID->"bb2997c4-8bab-488d-a068-\
+a35e59ee7292"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"pPrimary", " ", "=", " ", 
+  RowBox[{"p", " ", "*", " ", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"1", "-", "p"}], ")"}], "^", "2"}]}]}]], "Input",
+ CellChangeTimes->{{3.750431554038067*^9, 3.750431580483453*^9}, 
+   3.750431679212145*^9, {3.750431790947896*^9, 3.7504318263522367`*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"232ca3ab-b4c7-4cea-89b2-95e6c1e1acc4"],
+
+Cell[BoxData[
+ RowBox[{
+  SuperscriptBox[
+   RowBox[{"(", 
+    RowBox[{"1", "-", "p"}], ")"}], "2"], " ", "p"}]], "Output",
+ CellChangeTimes->{3.750431891258521*^9, 3.7504323077712917`*^9},
+ CellLabel->"Out[6]=",ExpressionUUID->"c4391c15-8ce4-4cf8-9593-71480a26faea"]
+}, Open  ]],
+
+Cell["\<\
+Note that I did not add the \[OpenCurlyDoubleQuote]3 choose 1\
+\[CloseCurlyDoubleQuote] since only a failure of the primary motor (i. e. a \
+specific motor!) will cause the plane to crash.
+Two arbitrary motors (regardless of them being the two secondary motors or \
+the primary and one of the secondary motors) fail with a probability of\
+\>", "Text",
+ CellChangeTimes->{{3.750431608877246*^9, 3.7504316500336533`*^9}, {
+  3.750431926836833*^9, 3.7504319857725697`*^9}, {3.750432024929305*^9, 
+  3.7504320433398733`*^9}, {3.750432131573214*^9, 3.750432151777499*^9}, {
+  3.750432258878272*^9, 
+  3.750432271625492*^9}},ExpressionUUID->"6976fcfc-115d-4a00-8fc6-\
+1b95bd347f6f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"pTwoArbitrary", " ", "=", " ", 
+  RowBox[{
+   RowBox[{"Binomial", "[", 
+    RowBox[{"3", ",", "2"}], "]"}], " ", "*", " ", 
+   RowBox[{"p", "^", "2"}], " ", "*", " ", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"1", "-", "p"}], ")"}], "^", "1"}]}]}]], "Input",
+ CellChangeTimes->{{3.750431668262362*^9, 3.750431724171283*^9}, {
+  3.7504317987966757`*^9, 3.750431823196369*^9}},
+ CellLabel->"In[7]:=",ExpressionUUID->"971a1fb4-bec8-49fc-8ded-c9c7fd2d275d"],
+
+Cell[BoxData[
+ RowBox[{"3", " ", 
+  RowBox[{"(", 
+   RowBox[{"1", "-", "p"}], ")"}], " ", 
+  SuperscriptBox["p", "2"]}]], "Output",
+ CellChangeTimes->{3.750431893991843*^9, 3.750432307814172*^9},
+ CellLabel->"Out[7]=",ExpressionUUID->"0864dfc9-4838-42c6-950e-cc0097116b50"]
+}, Open  ]],
+
+Cell["The probability of all motors failing is", "Text",
+ CellChangeTimes->{{3.7504317595524483`*^9, 
+  3.7504317721059628`*^9}},ExpressionUUID->"cfd6dbd4-bd40-4975-948c-\
+9062b34e5a7d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"pAllThree", " ", "=", " ", 
+  RowBox[{"p", "^", "3"}]}]], "Input",
+ CellChangeTimes->{{3.750431777259253*^9, 3.750431778938314*^9}, {
+  3.750431831528873*^9, 3.7504318338090076`*^9}},
+ CellLabel->"In[8]:=",ExpressionUUID->"03c854f3-5517-47e4-9685-a11740996f1c"],
+
+Cell[BoxData[
+ SuperscriptBox["p", "3"]], "Output",
+ CellChangeTimes->{3.750431897470748*^9, 3.750432307839822*^9},
+ CellLabel->"Out[8]=",ExpressionUUID->"cddf8ed6-c686-428a-a0e7-5f64dd3bbe65"]
+}, Open  ]],
+
+Cell["\<\
+So the total probability of the plane crashing is equal to the probability of \
+the main motor, 2 arbitrary motors or all motors failing.\
+\>", "Text",
+ CellChangeTimes->{{3.7504318387134867`*^9, 
+  3.7504318740062943`*^9}},ExpressionUUID->"c0c09546-93f8-4cd3-ae6a-\
+d3ed4ce6d01d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"pCrash", " ", "=", " ", 
+  RowBox[{
+  "pPrimary", " ", "+", " ", "pTwoArbitrary", " ", "+", " ", 
+   "pAllThree"}]}]], "Input",
+ CellChangeTimes->{{3.750431879872121*^9, 3.7504319067688513`*^9}},
+ CellLabel->"In[9]:=",ExpressionUUID->"8077c436-84d6-42c9-ac58-7c9897a4e43c"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SuperscriptBox[
+    RowBox[{"(", 
+     RowBox[{"1", "-", "p"}], ")"}], "2"], " ", "p"}], "+", 
+  RowBox[{"3", " ", 
+   RowBox[{"(", 
+    RowBox[{"1", "-", "p"}], ")"}], " ", 
+   SuperscriptBox["p", "2"]}], "+", 
+  SuperscriptBox["p", "3"]}]], "Output",
+ CellChangeTimes->{3.75043190842413*^9, 3.750432307865569*^9},
+ CellLabel->"Out[9]=",ExpressionUUID->"2b75e7ce-2ac6-4dcb-9d1a-8964372ce717"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{175, Automatic}, {173, Automatic}},
+FrontEndVersion->"11.3 for Linux x86 (64-bit) (March 6, 2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 792, 17, 173, "Text",ExpressionUUID->"dba313c8-b3e8-4ec3-97fd-56fe39b7ffa8"],
+Cell[CellGroupData[{
+Cell[1375, 41, 185, 3, 32, "Subsubtitle",ExpressionUUID->"19d5a810-b0ec-42e9-bf76-85265b6b658a"],
+Cell[1563, 46, 240, 4, 35, "Text",ExpressionUUID->"bb2997c4-8bab-488d-a068-a35e59ee7292"],
+Cell[CellGroupData[{
+Cell[1828, 54, 392, 8, 31, "Input",ExpressionUUID->"232ca3ab-b4c7-4cea-89b2-95e6c1e1acc4"],
+Cell[2223, 64, 267, 6, 35, "Output",ExpressionUUID->"c4391c15-8ce4-4cf8-9593-71480a26faea"]
+}, Open  ]],
+Cell[2505, 73, 686, 12, 104, "Text",ExpressionUUID->"6976fcfc-115d-4a00-8fc6-1b95bd347f6f"],
+Cell[CellGroupData[{
+Cell[3216, 89, 479, 11, 31, "Input",ExpressionUUID->"971a1fb4-bec8-49fc-8ded-c9c7fd2d275d"],
+Cell[3698, 102, 273, 6, 35, "Output",ExpressionUUID->"0864dfc9-4838-42c6-950e-cc0097116b50"]
+}, Open  ]],
+Cell[3986, 111, 186, 3, 35, "Text",ExpressionUUID->"cfd6dbd4-bd40-4975-948c-9062b34e5a7d"],
+Cell[CellGroupData[{
+Cell[4197, 118, 285, 5, 31, "Input",ExpressionUUID->"03c854f3-5517-47e4-9685-a11740996f1c"],
+Cell[4485, 125, 193, 3, 35, "Output",ExpressionUUID->"cddf8ed6-c686-428a-a0e7-5f64dd3bbe65"]
+}, Open  ]],
+Cell[4693, 131, 291, 6, 58, "Text",ExpressionUUID->"c0c09546-93f8-4cd3-ae6a-d3ed4ce6d01d"],
+Cell[CellGroupData[{
+Cell[5009, 141, 297, 6, 31, "Input",ExpressionUUID->"8077c436-84d6-42c9-ac58-7c9897a4e43c"],
+Cell[5309, 149, 431, 12, 68, "Output",ExpressionUUID->"2b75e7ce-2ac6-4dcb-9d1a-8964372ce717"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
