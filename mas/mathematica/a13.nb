@@ -1,0 +1,560 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     20831,        552]
+NotebookOptionsPosition[     16359,        480]
+NotebookOutlinePosition[     16697,        495]
+CellTagsIndexPosition[     16654,        492]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+Niklas Vest - A13
+Given are the disjoint events A1, A2 and A3 and the (also disjoint) events B1 \
+and B2 about which we know the following: \
+\>", "Text",
+ CellChangeTimes->{{3.750449271710236*^9, 3.750449393933016*^9}, {
+  3.750455363587159*^9, 
+  3.750455363890273*^9}},ExpressionUUID->"217582d9-6acb-45a2-bca0-\
+ce183079f190"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"P", "[", "A1", "]"}], " ", "+", " ", 
+    RowBox[{"P", "[", "A2", "]"}], " ", "+", " ", 
+    RowBox[{"P", "[", "A3", "]"}]}], " ", "=", " ", "1"}], 
+  " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"P", "[", "B1", "]"}], " ", "+", " ", 
+   RowBox[{"P", "[", "B2", "]"}]}], " ", "=", " ", "1"}]}], "Input",
+ CellChangeTimes->{{3.750449396096223*^9, 
+  3.750449457787112*^9}},ExpressionUUID->"50486a27-7a7e-4820-89d7-\
+e81dd25efbd8"],
+
+Cell["\<\
+This means one event of the set { A1, A2, A3 } must occur, which also applies \
+to the set { B1, B2 }. I will take advantage of this information later on.
+Furthermore, we know:\
+\>", "Text",
+ CellChangeTimes->{{3.7504494633176327`*^9, 3.75044956961102*^9}, {
+  3.750449625482682*^9, 3.750449633849008*^9}, {3.750455317244885*^9, 
+  3.750455321405169*^9}},ExpressionUUID->"685e3302-44d0-4364-bfed-\
+301eda20bfd4"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"P", "[", "A2", "]"}], " ", "=", " ", 
+  "0.3"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"P", "[", "B2", "]"}], " ", "=", " ", "0.8"}]}], "Input",
+ CellChangeTimes->{{3.750449571788239*^9, 3.750449604976535*^9}, {
+  3.750450810975766*^9, 
+  3.750450816414763*^9}},ExpressionUUID->"a9a63b09-a516-4414-b30f-\
+27ddd9d5472b"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"P", "[", 
+   RowBox[{"A2", " ", "\[Intersection]", " ", "B2"}], "]"}], " ", "=", " ", 
+  "0.2"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"P", "[", 
+   RowBox[{"A3", " ", "\[Intersection]", " ", "B2"}], "]"}], " ", "=", " ", 
+  "0.2"}]}], "Input",
+ CellChangeTimes->{{3.750449617106234*^9, 
+  3.750449663855337*^9}},ExpressionUUID->"87799914-5297-4e75-bc12-\
+95f8e369b6c1"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"P", "[", 
+   RowBox[{"B2", " ", "|", " ", "A1"}], "]"}], " ", "=", " ", 
+  "0.8"}]], "Input",
+ CellChangeTimes->{{3.750449670208413*^9, 3.7504496787927933`*^9}, 
+   3.750455811673774*^9},ExpressionUUID->"61703b31-4cb7-414f-91ff-\
+03f0848b9a5e"],
+
+Cell[CellGroupData[{
+
+Cell["Missing Values", "Section",
+ CellChangeTimes->{{3.750452258492524*^9, 
+  3.750452261589102*^9}},ExpressionUUID->"4fd628d1-50fc-43d2-9cf5-\
+9d85bf024025"],
+
+Cell["The first task is to derive the values of ", "Text",
+ CellChangeTimes->{{3.750449891710318*^9, 3.7504499603000298`*^9}, {
+  3.750449996998928*^9, 3.750450020875985*^9}, {3.750452210735038*^9, 
+  3.750452211351242*^9}},ExpressionUUID->"01c750ce-9a02-4531-abe4-\
+4cccb16b679a"],
+
+Cell[CellGroupData[{
+
+Cell["P[A1]", "Subsubitem",
+ CellChangeTimes->{{3.750450042718527*^9, 
+  3.7504500453191853`*^9}},ExpressionUUID->"db4d5373-854a-48a5-9cc9-\
+eb42de22240b"],
+
+Cell["P[B1]", "Subsubitem",
+ CellChangeTimes->{{3.750450042718527*^9, 
+  3.750450049089059*^9}},ExpressionUUID->"1c835f10-8538-4ac6-80b3-\
+71bbb698e63f"],
+
+Cell["P[A1 AND B1]", "Subsubitem",
+ CellChangeTimes->{{3.750450042718527*^9, 
+  3.750450054656309*^9}},ExpressionUUID->"f88c2dfe-ee5b-4038-bf7a-\
+b4ef05cc4134"],
+
+Cell["P[A1 GIVEN B1]", "Subsubitem",
+ CellChangeTimes->{{3.750450042718527*^9, 
+  3.750450059906953*^9}},ExpressionUUID->"546cfd33-c9d0-445f-99b4-\
+0758c6c20447"],
+
+Cell["P[B1 GIVEN A1]", "Subsubitem",
+ CellChangeTimes->{{3.750450042718527*^9, 3.750450066737999*^9}, {
+  3.750452075893674*^9, 
+  3.75045207623768*^9}},ExpressionUUID->"6ae4014f-1d5b-4078-a706-\
+64e7123cd775"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["P[B1]", "Subsubtitle",
+ CellChangeTimes->{{3.7504520459617863`*^9, 
+  3.750452048874329*^9}},ExpressionUUID->"89d49dfc-23fc-4a51-81d7-\
+1c04b2114f2f"],
+
+Cell["Since B1 and B2 are complete and B2 is known,", "Text",
+ CellChangeTimes->{{3.75045011764007*^9, 3.750450131137742*^9}, {
+  3.750450400531611*^9, 3.750450400923517*^9}, {3.750455418216756*^9, 
+  3.750455418248893*^9}},ExpressionUUID->"0c356d39-a885-4635-af59-\
+b48e5c44bf43"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"P", "[", "B1", "]"}], " ", "=", " ", 
+  RowBox[{
+   RowBox[{"1", " ", "-", " ", 
+    RowBox[{"P", "[", "B2", "]"}]}], " ", "=", " ", "0.2"}]}]], "Input",
+ CellChangeTimes->{{3.750450133986857*^9, 
+  3.750450166598773*^9}},ExpressionUUID->"8fd7c427-c4c5-4217-a533-\
+81bd85f893ce"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["( P[A1 \[Intersection] B2] )", "Subsubtitle",
+ CellChangeTimes->{{3.7504520602520647`*^9, 3.7504520629398623`*^9}, {
+  3.750452145358343*^9, 
+  3.7504521782425013`*^9}},ExpressionUUID->"c1560ba1-f57e-45d7-a73b-\
+97f000c067a0"],
+
+Cell[TextData[{
+ "Similarly, because A1, A2 and A3 are disjoint and complete, we know that \
+one of the aforementioned events must occur and that the set { A1, A2, A3 } \
+is a partition. With this in mind, we can think of the probability of the \
+concurrent occurrence of B2 and any of the events in said partition as  ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    UnderoverscriptBox["\[Sum]", 
+     RowBox[{"i", "=", "1"}], "3"], 
+    RowBox[{"P", "[", 
+     RowBox[{
+      SubscriptBox["A", "i"], "\[Intersection]", "  ", "B2"}], "]"}]}], 
+   TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "29034ab7-cb89-4bfd-ad27-fa34d3c69d9c"],
+ ". Keep in mind that sum means OR and OR means union!  This specific \
+consideration of \[OpenCurlyDoubleQuote]All ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["A", "i"], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "6fedb4f0-5fb9-49be-aa78-616c49f93aaf"],
+ " AND B2\[CloseCurlyDoubleQuote] is the same as B2 due to the completeness \
+of A1, A2 and A3. Hence we can derive P[A1 \[Intersection] B2]:"
+}], "Text",
+ CellChangeTimes->{{3.750450252536832*^9, 3.75045026540333*^9}, {
+   3.750450358302277*^9, 3.750450488805687*^9}, {3.750452323172683*^9, 
+   3.750452726815963*^9}, {3.750452828252689*^9, 3.750453161486908*^9}, {
+   3.750453227430263*^9, 3.750453547122007*^9}, {3.750453586378058*^9, 
+   3.7504536009769907`*^9}, {3.750453634643386*^9, 3.750453718751933*^9}, {
+   3.750453752430458*^9, 3.750453922098263*^9}, {3.750453952582486*^9, 
+   3.750454119308662*^9}, {3.750454189509994*^9, 3.75045420588083*^9}, {
+   3.750454236699864*^9, 3.750454276624881*^9}, {3.7504543098297377`*^9, 
+   3.750454361357028*^9}, {3.750454400642643*^9, 3.750454477546401*^9}, {
+   3.7504545358157387`*^9, 3.7504545638458433`*^9}, 3.750455438108921*^9, {
+   3.75045549129949*^9, 
+   3.750455541033143*^9}},ExpressionUUID->"a2caeb76-bd86-47fe-b3b6-\
+6bc8c4ab8baa"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"P", "[", 
+    RowBox[{"A1", " ", "\[Intersection]", " ", "B2"}], "]"}], " ", "+", " ", 
+   RowBox[{"P", "[", 
+    RowBox[{"A2", " ", "\[Intersection]", " ", "B2"}], "]"}], " ", "+", " ", 
+   RowBox[{"P", "[", 
+    RowBox[{"A3", " ", "\[Intersection]", " ", "B2"}], "]"}]}], " ", "=", " ", 
+  RowBox[{
+   RowBox[{"P", "[", "B2", "]"}], " ", "=", " ", 
+   "0.8"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"P", "[", 
+    RowBox[{"A1", " ", "\[Intersection]", " ", "B2"}], "]"}], " ", "+", " ", 
+   "0.2", " ", "+", " ", "0.2"}], " ", "=", " ", 
+  "0.8"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"P", "[", 
+   RowBox[{"A1", " ", "\[Intersection]", " ", "B2"}], "]"}], " ", "=", " ", 
+  "0.4"}]}], "Input",
+ CellChangeTimes->{{3.750450502929823*^9, 
+  3.750450609573868*^9}},ExpressionUUID->"740d8d88-3a7b-4657-ada9-\
+c03f96c7a308"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["P[B1 | A1]", "Subsubtitle",
+ CellChangeTimes->{{3.75045208350252*^9, 3.750452094920157*^9}, 
+   3.7504558165542383`*^9},ExpressionUUID->"70712845-fefd-4255-bde3-\
+d676ba8e2389"],
+
+Cell["\<\
+Given that event A1 occurred, we know that B2 will occur with a probability \
+of 80%, meaning that for the other 20 out of 100 times, B1 will occur since \
+they are complete.\
+\>", "Text",
+ CellChangeTimes->{{3.7504512291878777`*^9, 
+  3.750451275906062*^9}},ExpressionUUID->"d6318070-c7f9-4ce1-9a84-\
+9d815094e7ee"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"P", "[", 
+   RowBox[{"B1", " ", "|", " ", "A1"}], "]"}], " ", "=", " ", 
+  RowBox[{
+   RowBox[{"1", " ", "-", " ", 
+    RowBox[{"P", "[", 
+     RowBox[{"B2", " ", "|", " ", "A1"}], "]"}]}], " ", "=", " ", 
+   "0.2"}]}]], "Input",
+ CellChangeTimes->{{3.750451285252033*^9, 3.750451333313822*^9}, {
+  3.750455783374102*^9, 
+  3.750455784582424*^9}},ExpressionUUID->"6c135956-4c89-46f6-beb2-\
+6b719507f8f4"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["P[A1]", "Subsubtitle",
+ CellChangeTimes->{{3.750452107489379*^9, 
+  3.75045210853778*^9}},ExpressionUUID->"7867dd39-ff5b-47c7-808c-\
+aa23dc295afa"],
+
+Cell["\<\
+Using our knowledge of P[B2 | A1] and P[A1 \[Intersection] B2] we can use the \
+formula from definition 7.7\
+\>", "Text",
+ CellChangeTimes->{{3.750450252536832*^9, 3.75045026540333*^9}, {
+   3.750450358302277*^9, 3.750450491887048*^9}, {3.750450653603684*^9, 
+   3.750450662036628*^9}, {3.750451028202643*^9, 3.7504510361243563`*^9}, {
+   3.750451218227396*^9, 3.750451218795443*^9}, 
+   3.750455774980772*^9},ExpressionUUID->"5108f35f-2247-437d-b510-\
+3969ae85c4f1"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"P", "[", 
+   RowBox[{"X", " ", "|", " ", "Y"}], "]"}], " ", "=", " ", 
+  FractionBox[
+   RowBox[{"P", "[", 
+    RowBox[{"Y", " ", "\[Intersection]", " ", "X"}], "]"}], 
+   RowBox[{"P", "[", "Y", "]"}]]}]], "Input",
+ CellChangeTimes->{{3.750450269443722*^9, 3.750450320689947*^9}, 
+   3.750455779885586*^9},ExpressionUUID->"fa67ebf1-dd1c-4cb8-9be6-\
+e5320045ae29"],
+
+Cell["and solve for P[Y] to get P[A1]", "Text",
+ CellChangeTimes->{{3.750450343578223*^9, 3.750450352021556*^9}, {
+  3.7504510393724127`*^9, 
+  3.750451040580405*^9}},ExpressionUUID->"a366b528-a2de-432d-b239-\
+4d0eff0b0752"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"P", "[", 
+   RowBox[{"B2", " ", "|", " ", "A1"}], "]"}], " ", "=", " ", 
+  FractionBox[
+   RowBox[{"P", "[", 
+    RowBox[{"A1", " ", "\[Intersection]", " ", "B2"}], "]"}], 
+   RowBox[{"P", "[", "A1", "]"}]]}], "\[IndentingNewLine]", 
+ RowBox[{"0.8", " ", "=", " ", 
+  FractionBox["0.4", 
+   RowBox[{"P", "[", "A1", "]"}]]}]}], "Input",
+ CellChangeTimes->{{3.750450669959001*^9, 3.750450741871027*^9}, 
+   3.750455780934046*^9},ExpressionUUID->"010923cf-34ab-4b21-808c-\
+298d7c43b58f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"P", "[", "A1", "]"}], " ", "=", " ", 
+  RowBox[{
+   FractionBox["0.4", "0.8"], " ", "=", " ", "0.5"}]}]], "Input",
+ CellChangeTimes->{{3.750450750880558*^9, 
+  3.7504507631937113`*^9}},ExpressionUUID->"aa632a0f-4c78-43ab-b8fd-\
+638a0327a913"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["P[A1 \[Intersection] B1]", "Subsubtitle",
+ CellChangeTimes->{{3.75045212162726*^9, 
+  3.750452125043908*^9}},ExpressionUUID->"2e928e21-c0db-494c-9cf9-\
+eeb9ad484f6b"],
+
+Cell["\<\
+Since we are now aware of P[A1 \[Intersection] B2] and P[A1] we can use the \
+same formula to get P[A1 \[Intersection] B1]:\
+\>", "Text",
+ CellChangeTimes->{{3.750450836178102*^9, 3.750450886833066*^9}, {
+  3.750451048294121*^9, 
+  3.750451133000139*^9}},ExpressionUUID->"5bb93c0d-b46a-4b09-a6d5-\
+5ce66d68ff4b"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"P", "[", 
+   RowBox[{"A1", " ", "\[Intersection]", " ", "B1"}], "]"}], " ", "=", " ", 
+  RowBox[{
+   RowBox[{"P", "[", 
+    RowBox[{"B1", " ", "GIVEN", " ", "A1"}], "]"}], "*", 
+   RowBox[{"P", "[", "A1", "]"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"P", "[", 
+   RowBox[{"A1", " ", "\[Intersection]", " ", "B1"}], "]"}], " ", "=", " ", 
+  RowBox[{
+   RowBox[{"0.2", " ", "*", " ", "0.5"}], " ", "=", " ", "0.1"}]}]}], "Input",\
+
+ CellChangeTimes->{{3.7504511085098953`*^9, 3.750451161691885*^9}, {
+  3.750451373550589*^9, 
+  3.750451407619149*^9}},ExpressionUUID->"585b8547-103b-4845-96d2-\
+84be13ef3ed1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["P[A1 \[Intersection] B1]", "Subsubtitle",
+ CellChangeTimes->{{3.7504521974208927`*^9, 
+  3.750452200965378*^9}},ExpressionUUID->"e33935ea-11ba-4a35-bc97-\
+d02ccb04ad59"],
+
+Cell["Lastly, using a consequence of definition 7.7, namely", "Text",
+ CellChangeTimes->{{3.750451641391115*^9, 3.750451678180039*^9}, {
+  3.75045178799397*^9, 3.750451791289933*^9}, {3.750451852417535*^9, 
+  3.750451865739317*^9}},ExpressionUUID->"32d594ed-e2b1-4820-896b-\
+feb52a3f346b"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"P", "[", 
+    RowBox[{"X", " ", "|", " ", "Y"}], "]"}], " ", "*", " ", 
+   RowBox[{"P", "[", "Y", "]"}]}], " ", "=", " ", 
+  RowBox[{
+   RowBox[{"P", "[", 
+    RowBox[{"Y", " ", "|", " ", "X"}], "]"}], " ", "*", " ", 
+   RowBox[{"P", "[", "X", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.750451794556061*^9, 3.750451812805346*^9}, {
+  3.750455754986968*^9, 
+  3.750455762443355*^9}},ExpressionUUID->"89f084eb-70a9-4706-bbe5-\
+2892cea19f78"],
+
+Cell["we can calculate the final missing information:", "Text",
+ CellChangeTimes->{{3.7504518739563*^9, 3.750451881117025*^9}, {
+  3.75045586678445*^9, 
+  3.750455866847822*^9}},ExpressionUUID->"a8f448a0-4420-479b-8310-\
+54cbb55a11b6"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"P", "[", 
+    RowBox[{"A1", " ", "|", " ", "B1"}], "]"}], " ", "*", " ", 
+   RowBox[{"P", "[", "B1", "]"}]}], " ", "=", " ", 
+  RowBox[{
+   RowBox[{"P", "[", 
+    RowBox[{"B1", " ", "|", " ", "A1"}], "]"}], " ", "*", " ", 
+   RowBox[{"P", "[", "A1", "]"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"P", "[", 
+    RowBox[{"A1", " ", "|", " ", "B1"}], "]"}], " ", "*", " ", "0.2"}], " ", 
+  "=", " ", 
+  RowBox[{"0.2", " ", "*", " ", "0.5"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"P", "[", 
+   RowBox[{"A1", " ", "|", " ", "B1"}], "]"}], " ", "=", " ", 
+  "0.5"}]}], "Input",
+ CellChangeTimes->{{3.7504518839031343`*^9, 3.750451971432927*^9}, {
+  3.7504557582273073`*^9, 
+  3.7504557614275427`*^9}},ExpressionUUID->"46d4e40c-bf68-445f-afc1-\
+0ffa16469725"],
+
+Cell[CellGroupData[{
+
+Cell["Dependencies", "Section",
+ CellChangeTimes->{{3.750452281351294*^9, 
+  3.750452285463867*^9}},ExpressionUUID->"fcb9aa45-2102-4e15-a297-\
+422a1a96c594"],
+
+Cell[TextData[{
+ "A1 and B1 are ",
+ StyleBox["independent",
+  FontWeight->"Bold"],
+ " because"
+}], "Text",
+ CellChangeTimes->{{3.75045229068041*^9, 3.7504523115072536`*^9}, {
+   3.750454646238882*^9, 3.7504546676211147`*^9}, 
+   3.750454762255252*^9},ExpressionUUID->"eddc742c-cc7f-4c6b-ac49-\
+d41adfecddb6"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"P", "[", 
+   RowBox[{"A1", " ", "\[Intersection]", " ", "B1"}], "]"}], " ", "=", " ", 
+  RowBox[{
+   RowBox[{"P", "[", "A1", "]"}], "*", 
+   RowBox[{"P", "[", "B1", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.7504546885016127`*^9, 
+  3.750454705582662*^9}},ExpressionUUID->"4a5aadf5-6c24-452e-9090-\
+3e6ef36ad0d2"],
+
+Cell[TextData[{
+ "A1 and B2 are ",
+ StyleBox["independent",
+  FontWeight->"Bold"],
+ " because"
+}], "Text",
+ CellChangeTimes->{{3.75045229068041*^9, 3.7504523115072536`*^9}, {
+  3.750454646238882*^9, 3.750454660881321*^9}, {3.750454710093595*^9, 
+  3.750454713369289*^9}, {3.750454756212799*^9, 
+  3.7504547600699053`*^9}},ExpressionUUID->"a55fa6dd-c5ff-470a-a076-\
+efbd49331012"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"P", "[", 
+   RowBox[{"A1", " ", "\[Intersection]", " ", "B2"}], "]"}], " ", "=", " ", 
+  RowBox[{
+   RowBox[{"P", "[", "A1", "]"}], " ", "*", " ", 
+   RowBox[{"P", "[", "B2", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.750454775249036*^9, 
+  3.750454795370171*^9}},ExpressionUUID->"7bf176b5-f295-47e2-8291-\
+03a89c5f4c4d"],
+
+Cell["\<\
+... I did not expect you to read this far, I did not work out the remaining \
+exercise.. sowwy :(\
+\>", "Text",
+ CellChangeTimes->{{3.7504552106708927`*^9, 
+  3.750455229057034*^9}},ExpressionUUID->"8078e15a-434b-4d35-b8e2-\
+552b205c6120"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{-1672, Automatic}, {Automatic, 157}},
+FrontEndVersion->"11.3 for Linux x86 (64-bit) (March 6, 2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 339, 8, 81, "Text",ExpressionUUID->"217582d9-6acb-45a2-bca0-ce183079f190"],
+Cell[900, 30, 508, 14, 55, "Input",ExpressionUUID->"50486a27-7a7e-4820-89d7-e81dd25efbd8"],
+Cell[1411, 46, 422, 8, 81, "Text",ExpressionUUID->"685e3302-44d0-4364-bfed-301eda20bfd4"],
+Cell[1836, 56, 361, 9, 55, "Input",ExpressionUUID->"a9a63b09-a516-4414-b30f-27ddd9d5472b"],
+Cell[2200, 67, 413, 11, 55, "Input",ExpressionUUID->"87799914-5297-4e75-bc12-95f8e369b6c1"],
+Cell[2616, 80, 279, 7, 33, "Input",ExpressionUUID->"61703b31-4cb7-414f-91ff-03f0848b9a5e"],
+Cell[CellGroupData[{
+Cell[2920, 91, 159, 3, 68, "Section",ExpressionUUID->"4fd628d1-50fc-43d2-9cf5-9d85bf024025"],
+Cell[3082, 96, 281, 4, 35, "Text",ExpressionUUID->"01c750ce-9a02-4531-abe4-4cccb16b679a"],
+Cell[CellGroupData[{
+Cell[3388, 104, 155, 3, 26, "Subsubitem",ExpressionUUID->"db4d5373-854a-48a5-9cc9-eb42de22240b"],
+Cell[3546, 109, 153, 3, 26, "Subsubitem",ExpressionUUID->"1c835f10-8538-4ac6-80b3-71bbb698e63f"],
+Cell[3702, 114, 160, 3, 26, "Subsubitem",ExpressionUUID->"f88c2dfe-ee5b-4038-bf7a-b4ef05cc4134"],
+Cell[3865, 119, 162, 3, 26, "Subsubitem",ExpressionUUID->"546cfd33-c9d0-445f-99b4-0758c6c20447"],
+Cell[4030, 124, 210, 4, 26, "Subsubitem",ExpressionUUID->"6ae4014f-1d5b-4078-a706-64e7123cd775"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4289, 134, 156, 3, 32, "Subsubtitle",ExpressionUUID->"89d49dfc-23fc-4a51-81d7-1c04b2114f2f"],
+Cell[4448, 139, 281, 4, 35, "Text",ExpressionUUID->"0c356d39-a885-4635-af59-b48e5c44bf43"],
+Cell[4732, 145, 314, 8, 31, "Input",ExpressionUUID->"8fd7c427-c4c5-4217-a533-81bd85f893ce"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5083, 158, 232, 4, 32, "Subsubtitle",ExpressionUUID->"c1560ba1-f57e-45d7-a73b-97f000c067a0"],
+Cell[5318, 164, 1930, 38, 129, "Text",ExpressionUUID->"a2caeb76-bd86-47fe-b3b6-6bc8c4ab8baa"],
+Cell[7251, 204, 898, 24, 78, "Input",ExpressionUUID->"740d8d88-3a7b-4657-ada9-c03f96c7a308"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8186, 233, 183, 3, 32, "Subsubtitle",ExpressionUUID->"70712845-fefd-4255-bde3-d676ba8e2389"],
+Cell[8372, 238, 326, 7, 58, "Text",ExpressionUUID->"d6318070-c7f9-4ce1-9a84-9d815094e7ee"],
+Cell[8701, 247, 439, 12, 33, "Input",ExpressionUUID->"6c135956-4c89-46f6-beb2-6b719507f8f4"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9177, 264, 153, 3, 32, "Subsubtitle",ExpressionUUID->"7867dd39-ff5b-47c7-808c-aa23dc295afa"],
+Cell[9333, 269, 477, 9, 35, "Text",ExpressionUUID->"5108f35f-2247-437d-b510-3969ae85c4f1"],
+Cell[9813, 280, 398, 10, 59, "Input",ExpressionUUID->"fa67ebf1-dd1c-4cb8-9be6-e5320045ae29"],
+Cell[10214, 292, 224, 4, 35, "Text",ExpressionUUID->"a366b528-a2de-432d-b239-4d0eff0b0752"],
+Cell[10441, 298, 520, 13, 111, "Input",ExpressionUUID->"010923cf-34ab-4b21-808c-298d7c43b58f"],
+Cell[10964, 313, 277, 7, 55, "Input",ExpressionUUID->"aa632a0f-4c78-43ab-b8fd-638a0327a913"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11278, 325, 172, 3, 32, "Subsubtitle",ExpressionUUID->"2e928e21-c0db-494c-9cf9-eeb9ad484f6b"],
+Cell[11453, 330, 322, 7, 35, "Text",ExpressionUUID->"5bb93c0d-b46a-4b09-a6d5-5ce66d68ff4b"],
+Cell[11778, 339, 652, 17, 55, "Input",ExpressionUUID->"585b8547-103b-4845-96d2-84be13ef3ed1"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12467, 361, 175, 3, 32, "Subsubtitle",ExpressionUUID->"e33935ea-11ba-4a35-bc97-d02ccb04ad59"],
+Cell[12645, 366, 289, 4, 35, "Text",ExpressionUUID->"32d594ed-e2b1-4820-896b-feb52a3f346b"],
+Cell[12937, 372, 486, 13, 33, "Input",ExpressionUUID->"89f084eb-70a9-4706-bbe5-2892cea19f78"],
+Cell[13426, 387, 235, 4, 35, "Text",ExpressionUUID->"a8f448a0-4420-479b-8310-54cbb55a11b6"],
+Cell[13664, 393, 830, 23, 81, "Input",ExpressionUUID->"46d4e40c-bf68-445f-afc1-0ffa16469725"],
+Cell[CellGroupData[{
+Cell[14519, 420, 157, 3, 68, "Section",ExpressionUUID->"fcb9aa45-2102-4e15-a297-422a1a96c594"],
+Cell[14679, 425, 308, 9, 35, "Text",ExpressionUUID->"eddc742c-cc7f-4c6b-ac49-d41adfecddb6"],
+Cell[14990, 436, 348, 9, 31, "Input",ExpressionUUID->"4a5aadf5-6c24-452e-9090-3e6ef36ad0d2"],
+Cell[15341, 447, 379, 10, 35, "Text",ExpressionUUID->"a55fa6dd-c5ff-470a-a076-efbd49331012"],
+Cell[15723, 459, 356, 9, 31, "Input",ExpressionUUID->"7bf176b5-f295-47e2-8291-03a89c5f4c4d"],
+Cell[16082, 470, 249, 6, 35, "Text",ExpressionUUID->"8078e15a-434b-4d35-b8e2-552b205c6120"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
