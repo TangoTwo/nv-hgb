@@ -1,0 +1,200 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6846,        192]
+NotebookOptionsPosition[      6023,        170]
+NotebookOutlinePosition[      6359,        185]
+CellTagsIndexPosition[      6316,        182]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+Niklas Vest - A16
+Eine faire M\[UDoubleDot]nze wird dreimal geworfen. Die ZV X und Y geben \
+dabei an, wie oft Kopf unter
+den ersten zwei (X) bzw. allen drei (Y) W\[UDoubleDot]rfen aufgetreten ist.
+Geben Sie die Tabelle der gemeinsamen Verteilung von X und Y an, und \
+berechnen Sie die
+Randverteilungen. Sind X und Y unabh\[ADoubleDot]ngig?\
+\>", "Text",
+ CellChangeTimes->{{3.751001498349195*^9, 
+  3.751001514314405*^9}},ExpressionUUID->"f931f3fe-bb5c-4888-a7d9-\
+34cd8c4e3d0a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"p", " ", "=", " ", 
+   RowBox[{"0.5", "^", "3"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"commonDistr", " ", "=", " ", 
+   RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "p", ",", "      ", "0", ",", "       ", "0", ",", "       ", "p"}], 
+      "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", "      ", 
+       RowBox[{"p", "*", "2"}], ",", " ", "0", ",", "       ", 
+       RowBox[{"p", "*", "3"}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "      ", 
+       RowBox[{"p", "*", "2"}], ",", " ", "p", ",", "       ", 
+       RowBox[{"p", "*", "3"}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+      "0", ",", "      ", "0", ",", "       ", "p", ",", "       ", "p"}], 
+      "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"p", "*", "2"}], ",", 
+       RowBox[{"p", "*", "4"}], ",", " ", 
+       RowBox[{"p", "*", "2"}], ",", " ", 
+       RowBox[{"p", "*", "8"}]}], "}"}]}], "\[IndentingNewLine]", "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"TableForm", "[", 
+  RowBox[{"commonDistr", ",", " ", 
+   RowBox[{"TableHeadings", "\[Rule]", 
+    RowBox[{"{", " ", 
+     RowBox[{"(*", " ", "Y", " ", "*)"}], " ", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<0\>\"", ",", " ", "\"\<1\>\"", ",", " ", "\"\<2\>\"", ",", " ", 
+        "\"\<3\>\"", ",", " ", "\"\<Total\>\""}], "}"}], ",", " ", 
+      RowBox[{"(*", " ", "X", " ", "*)"}], " ", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<0\>\"", ",", " ", "\"\<1\>\"", ",", " ", "\"\<2\>\"", ",", " ", 
+        "\"\<Total\>\""}], "}"}]}], "}"}]}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.7510015404779997`*^9, 3.751001550990185*^9}, {
+   3.7510019175384083`*^9, 3.751002011580729*^9}, {3.751002065088853*^9, 
+   3.751002107044443*^9}, {3.7510021603165007`*^9, 3.751002203434922*^9}, {
+   3.751002366262054*^9, 3.751002377525055*^9}, {3.751002697175646*^9, 
+   3.751002719928842*^9}, {3.7510029087461433`*^9, 3.751002938861987*^9}, 
+   3.7510030045502863`*^9, 3.751003071569562*^9, {3.751003225373595*^9, 
+   3.7510032337733727`*^9}, {3.7510032856931143`*^9, 3.751003326744021*^9}, {
+   3.7510033585895147`*^9, 3.7510033752924137`*^9}, {3.751003431046488*^9, 
+   3.751003588591794*^9}},ExpressionUUID->"75d1e712-0aff-481c-9ccc-\
+efaceda7395f"],
+
+Cell[BoxData[
+ TagBox[
+  TagBox[GridBox[{
+     {
+      StyleBox["\[Null]",
+       ShowStringCharacters->False], 
+      TagBox["\<\"0\"\>",
+       HoldForm], 
+      TagBox["\<\"1\"\>",
+       HoldForm], 
+      TagBox["\<\"2\"\>",
+       HoldForm], 
+      TagBox["\<\"Total\"\>",
+       HoldForm]},
+     {
+      TagBox["\<\"0\"\>",
+       HoldForm], "0.125`", "0", "0", "0.125`"},
+     {
+      TagBox["\<\"1\"\>",
+       HoldForm], "0.125`", "0.25`", "0", "0.375`"},
+     {
+      TagBox["\<\"2\"\>",
+       HoldForm], "0", "0.25`", "0.125`", "0.375`"},
+     {
+      TagBox["\<\"3\"\>",
+       HoldForm], "0", "0", "0.125`", "0.125`"},
+     {
+      TagBox["\<\"Total\"\>",
+       HoldForm], "0.25`", "0.5`", "0.25`", "1.`"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxDividers->{
+     "Columns" -> {False, True, {False}, False}, "ColumnsIndexed" -> {}, 
+      "Rows" -> {False, True, {False}, False}, "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[2.0999999999999996`]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}],
+   {OutputFormsDump`HeadedRows, OutputFormsDump`HeadedColumns}],
+  Function[BoxForm`e$, 
+   TableForm[
+   BoxForm`e$, 
+    TableHeadings -> {{"0", "1", "2", "3", "Total"}, {
+      "0", "1", "2", "Total"}}]]]], "Output",
+ CellChangeTimes->{{3.7510033760095387`*^9, 3.7510033857422247`*^9}, {
+   3.7510034413625717`*^9, 3.751003472335823*^9}, 3.7510035682045803`*^9},
+ CellLabel->
+  "Out[109]//TableForm=",ExpressionUUID->"5bdf5bd0-7e2e-42b1-aceb-\
+65dae91bbe5d"]
+}, Open  ]],
+
+Cell["X und Y sind abh\[ADoubleDot]nging, weil", "Text",
+ CellChangeTimes->{{3.751003642566003*^9, 
+  3.751003660401473*^9}},ExpressionUUID->"ae296add-de70-45e5-aa70-\
+20a2c85621d6"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"0.25", " ", "*", " ", "0.125"}], " ", "!=", " ", "0.125", 
+  " "}]], "Input",
+ CellChangeTimes->{{3.7510036202849493`*^9, 3.751003636125156*^9}, {
+  3.751004158400403*^9, 3.751004160768639*^9}},
+ CellLabel->
+  "In[111]:=",ExpressionUUID->"79b0c132-1c41-4ee7-9faf-3486ca6a8834"],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{3.7510036364258633`*^9, 3.7510041618020363`*^9},
+ CellLabel->
+  "Out[111]=",ExpressionUUID->"53a5c2c0-2251-4429-941b-6f605efc7ed9"]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{167, Automatic}, {231, Automatic}},
+FrontEndVersion->"11.3 for Linux x86 (64-bit) (March 6, 2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 491, 11, 127, "Text",ExpressionUUID->"f931f3fe-bb5c-4888-a7d9-34cd8c4e3d0a"],
+Cell[CellGroupData[{
+Cell[1074, 35, 2443, 55, 262, "Input",ExpressionUUID->"75d1e712-0aff-481c-9ccc-efaceda7395f"],
+Cell[3520, 92, 1768, 53, 138, "Output",ExpressionUUID->"5bdf5bd0-7e2e-42b1-aceb-65dae91bbe5d"]
+}, Open  ]],
+Cell[5303, 148, 182, 3, 35, "Text",ExpressionUUID->"ae296add-de70-45e5-aa70-20a2c85621d6"],
+Cell[CellGroupData[{
+Cell[5510, 155, 312, 7, 31, "Input",ExpressionUUID->"79b0c132-1c41-4ee7-9faf-3486ca6a8834"],
+Cell[5825, 164, 182, 3, 68, "Output",ExpressionUUID->"53a5c2c0-2251-4429-941b-6f605efc7ed9"]
+}, Open  ]]
+}
+]
+*)
+

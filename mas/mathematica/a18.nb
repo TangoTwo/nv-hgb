@@ -1,0 +1,307 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     10809,        299]
+NotebookOptionsPosition[      8730,        254]
+NotebookOutlinePosition[      9066,        269]
+CellTagsIndexPosition[      9023,        266]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+Niklas Vest - A18
+Studenten der FH Hagenberg, die sich selbst die W\[ADoubleDot]sche waschen, \
+verschieben diese T\[ADoubleDot]tigkeit
+manchmal um ein paar Tage. (Anmerkung: alle folgenden ZV sind paarweise unabh\
+\[ADoubleDot]ngig.)\
+\>", "Text",
+ CellChangeTimes->{{3.751023570639563*^9, 
+  3.7510235996112013`*^9}},ExpressionUUID->"8c7ad10b-5fc5-470e-9213-\
+092f0c3f54fd"],
+
+Cell[CellGroupData[{
+
+Cell["a)", "Subsubsection",
+ CellChangeTimes->{{3.751023626742611*^9, 
+  3.7510236331838217`*^9}},ExpressionUUID->"75706393-4e58-4a75-bc21-\
+2eedb41fe57e"],
+
+Cell[TextData[{
+ "Ein gesch\[ADoubleDot]ftiger Student muss drei Aufgaben erledigen, bevor er \
+sich seiner Schmutzw\[ADoubleDot]sche\nwidmen kann. Jede dieser drei Aufgaben \
+dauert 1 Tag mit Wahrscheinlichkeit 2/3 und 2 Tage\nmit Wahrscheinlichkeit \
+1/3. Sei G die Anzahl Tage, die ein gesch\[ADoubleDot]ftiger Student den \
+Waschtag\nverschiebt. Berechnen Sie E(G).\n",
+ StyleBox["Der Student verschiebt den Waschtag maximal um 6 Tage, mindestens \
+jedoch um 3.",
+  FontSlant->"Italic"]
+}], "Text",
+ CellChangeTimes->{
+  3.751023630779401*^9, 3.751024015383782*^9, {3.7510243956004543`*^9, 
+   3.751024430749188*^9}},ExpressionUUID->"4ccdefb7-ed63-469a-8302-\
+5c26ded6e9ba"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"pQuick", "=", 
+   RowBox[{"2", "/", "3"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"eG3", "=", 
+   RowBox[{"pQuick", "^", "3"}]}], ";", " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{"Alle", " ", "Aufgaben", " ", "1", " ", "Tag"}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"eG4", "=", 
+   RowBox[{
+    RowBox[{"Binomial", "[", 
+     RowBox[{"3", ",", "1"}], "]"}], "*", 
+    RowBox[{"pQuick", "^", "2"}], "*", 
+    RowBox[{"(", 
+     RowBox[{"1", "-", "pQuick"}], ")"}]}]}], ";", 
+  RowBox[{"(*", " ", 
+   RowBox[{"Einmal", " ", "2", " ", "Tage"}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"eG5", "=", 
+   RowBox[{
+    RowBox[{"Binomial", "[", 
+     RowBox[{"3", ",", "2"}], "]"}], "*", "pQuick", "*", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"1", "-", "pQuick"}], ")"}], "^", "2"}]}]}], ";", 
+  RowBox[{"(*", " ", 
+   RowBox[{"Zweimal", " ", "2", " ", "Tage"}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"eG6", "=", 
+   RowBox[{
+    RowBox[{"Binomial", "[", 
+     RowBox[{"3", ",", "3"}], "]"}], "*", "pQuick", "*", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"1", "-", "pQuick"}], ")"}], "^", "3"}]}]}], ";", 
+  RowBox[{"(*", " ", 
+   RowBox[{"Master", " ", "Procrastinat0r"}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"eG", "=", 
+   RowBox[{"N", "[", 
+    RowBox[{
+     RowBox[{"3", "*", "eG3"}], "+", 
+     RowBox[{"4", "*", "eG4"}], "+", 
+     RowBox[{"5", "*", "eG5"}], "+", 
+     RowBox[{"6", "*", "eG6"}]}], "]"}]}]}]}], "Input",
+ CellChangeTimes->{{3.751024767728127*^9, 3.751024770831764*^9}, {
+  3.751024805116015*^9, 3.751025093208969*^9}, {3.7510251430003242`*^9, 
+  3.751025149112138*^9}},ExpressionUUID->"ffaf0a3e-9bb4-4a2e-b7f1-\
+199f2dc81fbc"],
+
+Cell[BoxData["3.925925925925926`"], "Output",
+ CellChangeTimes->{{3.751025060735919*^9, 3.751025093469367*^9}},
+ CellLabel->"Out[18]=",ExpressionUUID->"e5bca83b-42ae-4dde-8289-ea5da4350f0f"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["b)", "Subsubsection",
+ CellChangeTimes->{{3.751023986332057*^9, 
+  3.751023989324377*^9}},ExpressionUUID->"5e72a411-b75c-40b4-9684-\
+ca73e4d42136"],
+
+Cell[TextData[{
+ "Ein urgem\[UDoubleDot]tlicher Student wirft morgens einen fairen W\
+\[UDoubleDot]rfel. Wenn er einen 1er w\[UDoubleDot]rfelt,\n\
+k\[UDoubleDot]mmert er sich sofort um die W\[ADoubleDot]sche (d.h. mit 0 \
+Tagen Verz\[ODoubleDot]gerung). Sonst verschiebt er den\nWaschtag zun\
+\[ADoubleDot]chst um einen Tag und wiederholt den W\[UDoubleDot]rfelwurf am n\
+\[ADoubleDot]chsten Morgen. Sei U\ndie Anzahl Tage, die ein \
+urgem\[UDoubleDot]tlicher Student den Waschtag verschiebt. Berechnen Sie \
+E(U).\n",
+ StyleBox["Formel: Lisi",
+  FontSlant->"Italic"]
+}], "Text",
+ CellChangeTimes->{{3.751024009659897*^9, 3.75102401438386*^9}, {
+  3.751026889041305*^9, 3.751026905059547*^9}, {3.751028162659779*^9, 
+  3.7510281661641617`*^9}},ExpressionUUID->"857ba252-dc4c-4b47-bea3-\
+139a68ef5e8e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"eU", " ", "=", " ", 
+  RowBox[{"Sum", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"1", "/", "6"}], ")"}], "*", "k", "*", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"5", "/", "6"}], ")"}], "^", "k"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"k", ",", " ", "0", ",", " ", "Infinity"}], "}"}]}], "]"}], " ", 
+  
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"Infinity", " ", "=", " ", 
+     RowBox[{"Magic", " ", "Number"}]}], ";", " ", 
+    RowBox[{
+     RowBox[{"-", "2"}], "P"}]}], " ", "*)"}]}]], "Input",
+ CellChangeTimes->{{3.751025868140176*^9, 3.751025889332674*^9}, {
+   3.751026342692643*^9, 3.7510263434368553`*^9}, {3.751026553886776*^9, 
+   3.751026571657239*^9}, {3.75102671320325*^9, 3.751026744391541*^9}, {
+   3.7510281041985817`*^9, 3.751028113270705*^9}, 
+   3.751028148106656*^9},ExpressionUUID->"c665371b-67ae-43ad-bcff-\
+2d97f9b89ac0"],
+
+Cell[BoxData["5"], "Output",
+ CellChangeTimes->{{3.7510267277627296`*^9, 3.751026745040132*^9}},
+ CellLabel->"Out[21]=",ExpressionUUID->"f5d22564-c6e4-43c9-8016-857f44425ec0"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["c)", "Subsubsection",
+ CellChangeTimes->{{3.751024703572843*^9, 
+  3.7510247039431047`*^9}},ExpressionUUID->"16234229-ac4c-4971-9cc2-\
+201f790fc169"],
+
+Cell[TextData[{
+ "Bevor er sich um seine W\[ADoubleDot]sche k\[UDoubleDot]mmern kann, muss \
+sich ein kr\[ADoubleDot]nkelnder Student erst ein paar\nTage von einer \
+(schweren?) Grippe erholen. Sei K die ben\[ODoubleDot]tigte Anzahl an Tagen \
+zur Erholung,\ndie dem Produkt der Augenzahlen zweier fairer \
+W\[UDoubleDot]rfel entspricht. Berechnen Sie E(K).\n",
+ StyleBox["Datenquelle: A10",
+  FontSlant->"Italic"]
+}], "Text",
+ CellChangeTimes->{{3.7510247167407017`*^9, 3.751024727642391*^9}, {
+  3.751027107813324*^9, 3.751027111332645*^9}, {3.751027169260634*^9, 
+  3.751027172194607*^9}},ExpressionUUID->"62a6499a-3ee1-4f5a-8ff3-\
+ec37687caae4"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"eK", " ", "=", 
+  RowBox[{"N", "[", 
+   RowBox[{
+    RowBox[{"(", " ", 
+     RowBox[{
+     "1", "+", "4", "+", "6", "+", "10", "+", "24", "+", "16", "+", "9", "+", 
+      "20", "+", "48", "+", "30", "+", "16", "+", "36", "+", "40", "+", "48", 
+      "+", "25", "+", "60", "+", "36"}], ")"}], "/", "36"}], "]"}]}]], "Input",\
+
+ CellChangeTimes->{{3.751027194233529*^9, 3.751027242461623*^9}, {
+  3.75102786243719*^9, 3.751027933466468*^9}},
+ CellLabel->"In[24]:=",ExpressionUUID->"474ee248-947e-46ae-bd56-b68a7b68cfb8"],
+
+Cell[BoxData["11.916666666666666`"], "Output",
+ CellChangeTimes->{{3.751027236110024*^9, 3.751027242680052*^9}, 
+   3.751027934013421*^9},
+ CellLabel->"Out[24]=",ExpressionUUID->"d1324a1a-156f-48ed-896c-bffb9baee8fb"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["d)", "Subsubsection",
+ CellChangeTimes->{{3.751024722881299*^9, 
+  3.7510247236174717`*^9}},ExpressionUUID->"cf87cf54-77b8-40be-88f8-\
+9e20d6cfd498"],
+
+Cell["\<\
+Ein Student sei gesch\[ADoubleDot]ftig mit Wahrscheinlichkeit 1/2, urgem\
+\[UDoubleDot]tlich mit Wahrscheinlichkeit 1/3
+und kr\[ADoubleDot]nkelnd mit Wahrscheinlichkeit 1/6. Sei W die Anzahl an \
+Tagen, um die der Waschtag
+verschoben wird. Berechnen Sie E(W).
+\
+\>", "Text",
+ CellChangeTimes->{
+  3.751024746208571*^9},ExpressionUUID->"f32515e6-ebec-44d5-80c0-\
+366aa41ddb6c"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"eW", " ", "=", " ", 
+  RowBox[{
+   RowBox[{"eG", "*", 
+    RowBox[{"1", "/", "2"}]}], "+", 
+   RowBox[{"eU", "*", 
+    RowBox[{"1", "/", "3"}]}], "+", 
+   RowBox[{"eK", "*", 
+    RowBox[{"1", "/", "6"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.7510280215669527`*^9, 3.751028051399952*^9}},
+ CellLabel->"In[25]:=",ExpressionUUID->"f3e51c86-f30b-4dbf-a7da-a56ea13f4ccd"],
+
+Cell[BoxData["5.6157407407407405`"], "Output",
+ CellChangeTimes->{3.751028052168552*^9},
+ CellLabel->"Out[25]=",ExpressionUUID->"324c09ed-0740-4631-8034-0edb90b22d97"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{971, 911},
+WindowMargins->{{154, Automatic}, {141, Automatic}},
+FrontEndVersion->"11.3 for Linux x86 (64-bit) (March 6, 2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 386, 9, 81, "Text",ExpressionUUID->"8c7ad10b-5fc5-470e-9213-092f0c3f54fd"],
+Cell[CellGroupData[{
+Cell[969, 33, 155, 3, 45, "Subsubsection",ExpressionUUID->"75706393-4e58-4a75-bc21-2eedb41fe57e"],
+Cell[1127, 38, 678, 13, 127, "Text",ExpressionUUID->"4ccdefb7-ed63-469a-8302-5c26ded6e9ba"],
+Cell[CellGroupData[{
+Cell[1830, 55, 1745, 50, 147, "Input",ExpressionUUID->"ffaf0a3e-9bb4-4a2e-b7f1-199f2dc81fbc"],
+Cell[3578, 107, 190, 2, 35, "Output",ExpressionUUID->"e5bca83b-42ae-4dde-8289-ea5da4350f0f"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3817, 115, 153, 3, 45, "Subsubsection",ExpressionUUID->"5e72a411-b75c-40b4-9684-ca73e4d42136"],
+Cell[3973, 120, 801, 15, 127, "Text",ExpressionUUID->"857ba252-dc4c-4b47-bea3-139a68ef5e8e"],
+Cell[CellGroupData[{
+Cell[4799, 139, 904, 24, 31, "Input",ExpressionUUID->"c665371b-67ae-43ad-bcff-2d97f9b89ac0"],
+Cell[5706, 165, 175, 2, 35, "Output",ExpressionUUID->"f5d22564-c6e4-43c9-8016-857f44425ec0"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5930, 173, 155, 3, 45, "Subsubsection",ExpressionUUID->"16234229-ac4c-4971-9cc2-201f790fc169"],
+Cell[6088, 178, 649, 12, 104, "Text",ExpressionUUID->"62a6499a-3ee1-4f5a-8ff3-ec37687caae4"],
+Cell[CellGroupData[{
+Cell[6762, 194, 542, 12, 31, "Input",ExpressionUUID->"474ee248-947e-46ae-bd56-b68a7b68cfb8"],
+Cell[7307, 208, 217, 3, 35, "Output",ExpressionUUID->"d1324a1a-156f-48ed-896c-bffb9baee8fb"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7573, 217, 155, 3, 45, "Subsubsection",ExpressionUUID->"cf87cf54-77b8-40be-88f8-9e20d6cfd498"],
+Cell[7731, 222, 386, 10, 104, "Text",ExpressionUUID->"f32515e6-ebec-44d5-80c0-366aa41ddb6c"],
+Cell[CellGroupData[{
+Cell[8142, 236, 390, 10, 31, "Input",ExpressionUUID->"f3e51c86-f30b-4dbf-a7da-a56ea13f4ccd"],
+Cell[8535, 248, 167, 2, 35, "Output",ExpressionUUID->"324c09ed-0740-4631-8034-0edb90b22d97"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
