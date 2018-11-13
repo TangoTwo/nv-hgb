@@ -100,12 +100,13 @@ NEXT TRUNC(SYSDATE) + 1 + ((1/24/60) * (23 * 60 + 30))
      FROM ue05_02b);
 
 DROP MATERIALIZED VIEW ue05_02c;
-
 -- 3.1
 SELECT  column_name,
        data_type,
        data_length,
-       nullable
+       nullable,
+       data_precision AS significant_digits,
+       data_scale AS fixed_point_digits
 FROM user_tab_columns
 WHERE table_name = &tab_name;
 

@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.0.4 (TeX Live 2017/Debian)  (format=lualatex 2018.10.28)  6 NOV 2018 13:50
+This is LuaTeX, Version 1.0.4 (TeX Live 2017/Debian)  (format=lualatex 2018.10.28)  6 NOV 2018 21:42
  restricted system commands enabled.
 **DES33_UE05_VEST.tex
 (./DES33_UE05_VEST.tex
@@ -302,28 +302,28 @@ File: images/1_2.png Graphic file (type png)
 <use images/1_2.png>
 Package luatex.def Info: images/1_2.png  used on input line 74.
 (luatex.def)             Requested size: 345.0pt x 206.17357pt.
-<images/1_3.png, id=22, 591.661pt x 237.45857pt>
+ [4<./images/1_1.png>]
+<images/1_3.png, id=25, 591.661pt x 237.45857pt>
 File: images/1_3.png Graphic file (type png)
 <use images/1_3.png>
 Package luatex.def Info: images/1_3.png  used on input line 80.
 (luatex.def)             Requested size: 345.0pt x 138.4616pt.
- [4<./images/1_1.png><./images/1_2.png>]
-<images/2_1.png, id=26, 528.9211pt x 238.25275pt>
+<images/2_1.png, id=26, 536.06868pt x 259.6955pt>
 File: images/2_1.png Graphic file (type png)
 <use images/2_1.png>
 Package luatex.def Info: images/2_1.png  used on input line 86.
-(luatex.def)             Requested size: 345.0pt x 155.40776pt.
-<images/3_1.png, id=27, 422.50154pt x 138.1866pt>
+(luatex.def)             Requested size: 345.0pt x 167.13179pt.
+ [5<./images/1_2.png><./images/1_3.png>]
+<images/3_1.png, id=30, 675.84363pt x 138.1866pt>
 File: images/3_1.png Graphic file (type png)
 <use images/3_1.png>
 Package luatex.def Info: images/3_1.png  used on input line 92.
-(luatex.def)             Requested size: 345.0pt x 112.83719pt.
-<images/3_2.png, id=28, 392.32286pt x 33.35538pt>
+(luatex.def)             Requested size: 345.0pt x 70.54169pt.
+<images/3_2.png, id=31, 392.32286pt x 33.35538pt>
 File: images/3_2.png Graphic file (type png)
 <use images/3_2.png>
 Package luatex.def Info: images/3_2.png  used on input line 98.
 (luatex.def)             Requested size: 345.0pt x 29.33243pt.
- [5<./images/1_3.png><./images/2_1.png><./images/3_1.png>]
 <images/3_3.png, id=32, 649.63582pt x 92.91856pt>
 File: images/3_3.png Graphic file (type png)
 <use images/3_3.png>
@@ -334,17 +334,18 @@ File: images/4_1.png Graphic file (type png)
 <use images/4_1.png>
 Package luatex.def Info: images/4_1.png  used on input line 110.
 (luatex.def)             Requested size: 345.0pt x 42.69063pt.
- [6<./images/3_2.png><./images/3_3.png><./images/4_1.png>] (./DES33_UE05_VEST.a
-ux))
+
+[6<./images/2_1.png><./images/3_1.png><./images/3_2.png><./images/3_3.png>]
+[7<./images/4_1.png>] (./DES33_UE05_VEST.aux))
 
 Here is how much of LuaTeX's memory you used:
- 5318 strings out of 494480
+ 5322 strings out of 494480
  244182,184870 words of node,token memory allocated
  356 words of node memory still in use:
    2 hlist, 1 vlist, 1 rule, 2 glue, 48 glue_spec, 1 write nodes
-   avail lists: 1:1,2:22,3:63,4:4493,5:4295,6:1416,7:5412,8:3558,9:9262,10:36,11
+   avail lists: 1:1,2:22,3:63,4:4493,5:4295,6:1465,7:5440,8:3558,9:9262,10:36,11
 :659
- 9136 multiletter control sequences out of 65536+600000
+ 9140 multiletter control sequences out of 65536+600000
  41 fonts using 1707523 bytes
  39i,12n,43p,227b,976s stack positions out of 5000i,500n,10000p,200000b,100000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/share/texmf/fonts/enc/dvi
@@ -354,10 +355,10 @@ ts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb><
 /usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/p
 ublic/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmri8.pfb></usr/share/
 texmf/fonts/type1/public/lm/lmtt8.pfb>
-Output written on DES33_UE05_VEST.pdf (6 pages, 377132 bytes).
+Output written on DES33_UE05_VEST.pdf (7 pages, 379196 bytes).
 
-PDF statistics: 65 PDF objects out of 1000 (max. 8388607)
- 40 compressed objects within 1 object stream
+PDF statistics: 68 PDF objects out of 1000 (max. 8388607)
+ 42 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 
