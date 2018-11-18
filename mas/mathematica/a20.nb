@@ -1,0 +1,262 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      9105,        254]
+NotebookOptionsPosition[      7395,        221]
+NotebookOutlinePosition[      7731,        236]
+CellTagsIndexPosition[      7688,        233]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+Niklas Vest - A20
+Finden Sie die unbekannten Parameter einer Zufallsvariablen (bekannter \
+Verteilung) mit dem
+Erwartungswert E(X) = 50 und der Varianz Var(X) = 40 (falls \
+m\[ODoubleDot]glich), wenn die ZV
+    <> hypergeometrisch verteilt ist (Parameter n=300, aber M und N \
+unbekannt)
+    <> binomialverteilt ist (Parameter n und p unbekannt)
+    <> poissonverteilt ist (Parameter \[Lambda] unbekannt).
+Falls es die Verteilung mit diesem Erwartungswert und dieser Varianz nicht \
+gibt, begr\[UDoubleDot]nden Sie
+warum!\
+\>", "Text",
+ CellChangeTimes->{{3.751523291051363*^9, 3.751523329592135*^9}, 
+   3.751523394456696*^9},ExpressionUUID->"817884ea-9cce-4373-ad39-\
+92b7638ee916"],
+
+Cell[CellGroupData[{
+
+Cell["X ~ Bin(n, p)", "Subsubsection",
+ CellChangeTimes->{{3.7515233759898643`*^9, 
+  3.75152338365478*^9}},ExpressionUUID->"c5483a52-dfbb-44d3-bcc3-\
+78cd7123ebbc"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"w", ".", " ", "w", "."}], " ", "*)"}], " ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"E", "[", "X_", "]"}], " ", "=", " ", 
+    RowBox[{"n", "*", "p"}]}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"w", ".", " ", "w", "."}], " ", "*)"}], " ", 
+   RowBox[{
+    RowBox[{"Var", "[", "X_", "]"}], " ", "=", " ", 
+    RowBox[{"n", "*", "p", "*", 
+     RowBox[{"(", 
+      RowBox[{"1", "-", "p"}], ")"}]}]}]}]}]], "Input",
+ CellChangeTimes->{{3.751523488219849*^9, 3.7515235591813393`*^9}, {
+  3.7515238657573977`*^9, 3.751523869125125*^9}, {3.751524091386024*^9, 
+  3.7515240927620163`*^9}, {3.751524408011909*^9, 
+  3.751524430846301*^9}},ExpressionUUID->"9d36b717-fc33-46ba-a6ab-\
+b093b7e840e7"],
+
+Cell["\<\
+Durch einsetzen erhalten wir zwei Gleichungen f\[UDoubleDot]r zwei Unbekannte:\
+\>", "Text",
+ CellChangeTimes->{{3.751523954527836*^9, 
+  3.751523975794559*^9}},ExpressionUUID->"d7b46447-9257-4681-b2b2-\
+e4aea5c85415"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", "I", "  ", "*)"}], " ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"n", "\[Times]", "p"}], "=", "50"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", "II", " ", "*)"}], " ", 
+   RowBox[{
+    RowBox[{"n", "\[Times]", "p", "\[Times]", 
+     RowBox[{"(", 
+      RowBox[{"1", "-", "p"}], ")"}]}], "=", "40"}]}]}]], "Input",
+ CellChangeTimes->{{3.7515238301137257`*^9, 3.7515238596021137`*^9}, {
+  3.751523893952354*^9, 3.7515239198837833`*^9}, {3.751524018994096*^9, 
+  3.751524031826789*^9}, {3.751524080486775*^9, 3.7515240863197203`*^9}, {
+  3.751524192175322*^9, 3.75152420564118*^9}, {3.751524350763948*^9, 
+  3.751524427653886*^9}},ExpressionUUID->"3226758c-8c26-4d75-a489-\
+5c4f1673a347"],
+
+Cell[TextData[{
+ "Umformung auf ",
+ StyleBox["b",
+  FontSlant->"Italic"],
+ " und einsetzen in (II):"
+}], "Text",
+ CellChangeTimes->{{3.751524047747962*^9, 3.751524076647889*^9}, {
+  3.751524241891252*^9, 
+  3.7515242578953943`*^9}},ExpressionUUID->"4cf5d238-8d0e-40e6-ae31-\
+046cd9e117b2"],
+
+Cell[BoxData[{
+ RowBox[{"p", " ", "=", " ", 
+  FractionBox["50", "n"]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"n", "\[Times]", 
+   FractionBox["50", "n"], "\[Times]", 
+   RowBox[{"(", 
+    RowBox[{"1", "-", 
+     FractionBox["50", "n"]}], ")"}]}], "=", "40"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"50", "-", 
+   FractionBox[
+    SuperscriptBox["50", "2"], "n"]}], "                ", "=", 
+  "40"}], "\[IndentingNewLine]", 
+ RowBox[{
+  FractionBox[
+   SuperscriptBox["50", "2"], "n"], "                        ", "=", " ", 
+  "10"}]}], "Input",
+ CellChangeTimes->{{3.7515238301137257`*^9, 3.7515238596021137`*^9}, {
+  3.751523893952354*^9, 3.7515239198837833`*^9}, {3.751524018994096*^9, 
+  3.751524027001647*^9}, {3.7515240976185703`*^9, 3.751524112196829*^9}, {
+  3.75152416449973*^9, 3.751524229076623*^9}, {3.751524301517095*^9, 
+  3.751524324136117*^9}, {3.751524355140287*^9, 3.7515244051461782`*^9}, {
+  3.7515244509604473`*^9, 
+  3.751524455737355*^9}},ExpressionUUID->"5d6a011d-ec24-41f2-aba2-\
+c7d869ec9212"],
+
+Cell["Daraus folgt:", "Text",
+ CellChangeTimes->{{3.751524468778358*^9, 
+  3.751524472170848*^9}},ExpressionUUID->"1651d0e6-2e87-4604-9021-\
+704c2f390891"],
+
+Cell[BoxData[{
+ RowBox[{"n", " ", "=", " ", "250"}], "\[IndentingNewLine]", 
+ RowBox[{"p", " ", "=", " ", 
+  RowBox[{
+   FractionBox["50", "250"], "=", 
+   FractionBox["1", "5"]}]}]}], "Input",
+ CellChangeTimes->{{3.751524474044598*^9, 
+  3.751524501093473*^9}},ExpressionUUID->"a3059dfb-b94e-45f9-bab9-\
+115696c8df5e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["X~ Poisson(\[Lambda])", "Subsubsection",
+ CellChangeTimes->{{3.751524527537603*^9, 
+  3.7515245498130198`*^9}},ExpressionUUID->"74bb8ac6-5b76-49d1-85b0-\
+f23d1d30a144"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"w", ".", " ", "w", "."}], " ", "*)"}], " ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"E", "[", "X_", "]"}], " ", "=", " ", "\[Lambda]"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"w", ".", " ", "w", "."}], " ", "*)"}], " ", 
+   RowBox[{
+    RowBox[{"Var", "[", "X_", "]"}], " ", "=", " ", 
+    "\[Lambda]"}]}]}]], "Input",
+ CellChangeTimes->{{3.751524571112019*^9, 
+  3.751524586528204*^9}},ExpressionUUID->"cf0a2ffd-9e9c-4560-ab2c-\
+8bbcb1421639"],
+
+Cell["\<\
+Weil sich der Erwartungswert der ZV X von deren Varianz unterscheidet, folgt \
+X nicht der Poissonverteilung.\
+\>", "Text",
+ CellChangeTimes->{{3.751524590121893*^9, 3.751524655770372*^9}, {
+  3.751538585643552*^9, 
+  3.751538599220892*^9}},ExpressionUUID->"22baabab-3a9b-49ed-856c-\
+4f9129b007b3"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["x ~ Hygeom(N, M, 300)", "Subsubsection",
+ CellChangeTimes->{{3.751538831162546*^9, 3.751538856163281*^9}, {
+  3.7515389306304283`*^9, 
+  3.751538931830538*^9}},ExpressionUUID->"54d71c53-73c2-47f9-a8d0-\
+7eecc5f498ec"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"w", ".", " ", "w", "."}], " ", "*)"}], " ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"E", "[", "X_", "]"}], " ", "=", " ", 
+    RowBox[{"300", "\[Times]", 
+     FractionBox["M", "N"]}]}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"w", ".", " ", "w", "."}], " ", "*)"}], " ", 
+   RowBox[{
+    RowBox[{"Var", "[", "X_", "]"}], " ", "=", " ", 
+    RowBox[{"300", "\[Times]", 
+     FractionBox["M", "N"], "\[Times]", 
+     RowBox[{"(", 
+      RowBox[{"1", "-", 
+       FractionBox["M", "N"]}], ")"}], "\[Times]", 
+     RowBox[{"(", 
+      FractionBox[
+       RowBox[{"N", "-", "300"}], 
+       RowBox[{"N", "-", "1"}]], ")"}]}]}]}]}]], "Input",
+ CellChangeTimes->{{3.751538890121745*^9, 3.7515389446245203`*^9}, {
+  3.751542288614314*^9, 
+  3.7515423451273127`*^9}},ExpressionUUID->"98e73c50-c06d-471f-ba74-\
+62dd7917bf6b"],
+
+Cell[". . .", "Text",
+ CellChangeTimes->{{3.751542348886655*^9, 3.7515423529514227`*^9}, {
+  3.75154291118301*^9, 
+  3.7515429145426617`*^9}},ExpressionUUID->"c5e74a24-5c15-4718-9476-\
+3eac00f48a7d"]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{598, Automatic}, {236, Automatic}},
+FrontEndVersion->"11.3 for Linux x86 (64-bit) (March 6, 2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 694, 16, 196, "Text",ExpressionUUID->"817884ea-9cce-4373-ad39-92b7638ee916"],
+Cell[CellGroupData[{
+Cell[1277, 40, 165, 3, 45, "Subsubsection",ExpressionUUID->"c5483a52-dfbb-44d3-bcc3-78cd7123ebbc"],
+Cell[1445, 45, 761, 19, 55, "Input",ExpressionUUID->"9d36b717-fc33-46ba-a6ab-b093b7e840e7"],
+Cell[2209, 66, 228, 5, 35, "Text",ExpressionUUID->"d7b46447-9257-4681-b2b2-e4aea5c85415"],
+Cell[2440, 73, 729, 16, 55, "Input",ExpressionUUID->"3226758c-8c26-4d75-a489-5c4f1673a347"],
+Cell[3172, 91, 289, 9, 35, "Text",ExpressionUUID->"4cf5d238-8d0e-40e6-ae31-046cd9e117b2"],
+Cell[3464, 102, 1033, 25, 211, "Input",ExpressionUUID->"5d6a011d-ec24-41f2-aba2-c7d869ec9212"],
+Cell[4500, 129, 155, 3, 35, "Text",ExpressionUUID->"1651d0e6-2e87-4604-9021-704c2f390891"],
+Cell[4658, 134, 319, 8, 78, "Input",ExpressionUUID->"a3059dfb-b94e-45f9-bab9-115696c8df5e"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5014, 147, 174, 3, 45, "Subsubsection",ExpressionUUID->"74bb8ac6-5b76-49d1-85b0-f23d1d30a144"],
+Cell[5191, 152, 523, 15, 55, "Input",ExpressionUUID->"cf0a2ffd-9e9c-4560-ab2c-8bbcb1421639"],
+Cell[5717, 169, 308, 7, 58, "Text",ExpressionUUID->"22baabab-3a9b-49ed-856c-4f9129b007b3"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6062, 181, 223, 4, 45, "Subsubsection",ExpressionUUID->"54d71c53-73c2-47f9-a8d0-7eecc5f498ec"],
+Cell[6288, 187, 889, 25, 105, "Input",ExpressionUUID->"98e73c50-c06d-471f-ba74-62dd7917bf6b"],
+Cell[7180, 214, 199, 4, 35, "Text",ExpressionUUID->"c5e74a24-5c15-4718-9476-3eac00f48a7d"]
+}, Open  ]]
+}
+]
+*)
+

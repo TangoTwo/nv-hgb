@@ -1,0 +1,210 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      7794,        202]
+NotebookOptionsPosition[      6377,        172]
+NotebookOutlinePosition[      6714,        187]
+CellTagsIndexPosition[      6671,        184]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+Niklas Vest - A19
+Zu drei Zufallsvariablen X, Y und Z sind folgende \
+Wahrscheinlichkeitsfunktionen gegeben.
+Man berechne zu allen drei Verteilungen
+    <> die Erwartungswerte E(X), E(Y) und E(Z),
+    <> die Varianzen Var(X), Var(Y) und Var(Z).
+Lassen sich die Zufallsvariablen Y und Z durch je eine lineare Transformation \
+von X beschreiben?
+Wenn ja: wie lautet/lauten diese?\
+\>", "Text",
+ CellChangeTimes->{{3.751296414818593*^9, 
+  3.751296466693369*^9}},ExpressionUUID->"d879cf10-afce-489a-b8a6-\
+829dd04914a5"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"probabilities", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.2", ",", " ", "0.4", ",", " ", "0.2", ",", " ", "0.1", ",", " ", 
+     "0.1"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Expected", "[", "av_", "]"}], " ", ":=", " ", 
+  RowBox[{"Sum", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"probabilities", "[", 
+      RowBox[{"[", "i", "]"}], "]"}], "*", 
+     RowBox[{"av", "[", 
+      RowBox[{"[", "i", "]"}], "]"}]}], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", " ", "1", ",", "5"}], "}"}]}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Var", "[", "av_", "]"}], " ", ":=", " ", 
+  RowBox[{
+   RowBox[{"Expected", "[", 
+    RowBox[{"av", "^", "2"}], "]"}], " ", "-", " ", 
+   RowBox[{
+    RowBox[{"Expected", "[", "av", "]"}], "^", "2"}]}]}]}], "Input",
+ CellChangeTimes->{{3.751297015679739*^9, 3.751297031226102*^9}, {
+  3.751297091753628*^9, 3.751297199494348*^9}, {3.751297238428583*^9, 
+  3.751297263302307*^9}, {3.751297319238352*^9, 3.7512973753564787`*^9}, {
+  3.751297504493898*^9, 3.75129752836764*^9}, {3.7512975715904417`*^9, 
+  3.75129757533348*^9}, {3.75129761169134*^9, 3.75129761494672*^9}, {
+  3.751297833791491*^9, 
+  3.751297851152835*^9}},ExpressionUUID->"0e6ee1ee-0b3c-4dd1-8362-\
+31bd16be19d6"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"xE", " ", "=", " ", 
+  RowBox[{"Expected", "[", 
+   RowBox[{"{", 
+    RowBox[{
+    "1", ",", " ", "2", ",", " ", "3", ",", " ", "4", ",", " ", "5", ",", " ",
+      "6"}], "}"}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"xVar", " ", "=", "        ", 
+  RowBox[{"Var", "[", 
+   RowBox[{"{", 
+    RowBox[{
+    "1", ",", " ", "2", ",", " ", "3", ",", " ", "4", ",", " ", "5", ",", " ",
+      "6"}], "}"}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.7512965019814777`*^9, 3.75129657466289*^9}, {
+  3.751296704015326*^9, 3.751296714128673*^9}, {3.751296785858728*^9, 
+  3.7512968952398977`*^9}, {3.751297210633683*^9, 3.7512972235691967`*^9}, {
+  3.7512972784025507`*^9, 3.751297303981164*^9}, {3.751297539403328*^9, 
+  3.7512975640359917`*^9}},
+ CellLabel->"In[50]:=",ExpressionUUID->"4442d9ca-096a-4631-a80a-3781f3bc15df"],
+
+Cell[BoxData["2.5`"], "Output",
+ CellChangeTimes->{
+  3.751296540562264*^9, 3.751296714850412*^9, 3.751296896283635*^9, {
+   3.751297225034161*^9, 3.751297270320387*^9}, {3.751297301183008*^9, 
+   3.751297304519231*^9}, {3.75129756476068*^9, 3.7512975788106203`*^9}, 
+   3.751297618166151*^9},
+ CellLabel->"Out[50]=",ExpressionUUID->"4afd0236-6afd-4bba-824a-0e91ba0f82e0"],
+
+Cell[BoxData["1.4500000000000002`"], "Output",
+ CellChangeTimes->{
+  3.751296540562264*^9, 3.751296714850412*^9, 3.751296896283635*^9, {
+   3.751297225034161*^9, 3.751297270320387*^9}, {3.751297301183008*^9, 
+   3.751297304519231*^9}, {3.75129756476068*^9, 3.7512975788106203`*^9}, 
+   3.7512976181673*^9},
+ CellLabel->"Out[51]=",ExpressionUUID->"310e6ff1-ad8c-4237-bd94-4adc95a2a8ad"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"yE", " ", "=", " ", 
+  RowBox[{"Expected", "[", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", " ", "4", ",", " ", "5", ",", " ", "6", ",", " ", "7"}],
+     "}"}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"yVar", " ", "=", "        ", 
+  RowBox[{"Var", "[", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", " ", "4", ",", " ", "5", ",", " ", "6", ",", " ", "7"}],
+     "}"}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.751297669722081*^9, 3.7512977143507442`*^9}},
+ CellLabel->"In[58]:=",ExpressionUUID->"9ccf6a73-3b52-47e2-b530-d7b9c448b074"],
+
+Cell[BoxData["4.5`"], "Output",
+ CellChangeTimes->{3.751297716661499*^9, 3.751297912175741*^9},
+ CellLabel->"Out[58]=",ExpressionUUID->"2048cf15-9608-44a5-8977-1c9a43fd26e5"],
+
+Cell[BoxData["1.4500000000000028`"], "Output",
+ CellChangeTimes->{3.751297716661499*^9, 3.751297912177452*^9},
+ CellLabel->"Out[59]=",ExpressionUUID->"15cda863-0fee-492b-b3f4-d7bf1784a3ce"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"zE", " ", "=", " ", 
+  RowBox[{"Expected", "[", 
+   RowBox[{"{", 
+    RowBox[{
+    "3", ",", " ", "5", ",", " ", "7", ",", " ", "9", ",", " ", "11"}], "}"}],
+    "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"zVar", " ", "=", "        ", 
+  RowBox[{"Var", "[", 
+   RowBox[{"{", 
+    RowBox[{
+    "3", ",", " ", "5", ",", " ", "7", ",", " ", "9", ",", " ", "11"}], "}"}],
+    "]"}]}]}], "Input",
+ CellChangeTimes->{{3.751297783128317*^9, 3.751297812123884*^9}},
+ CellLabel->"In[56]:=",ExpressionUUID->"9ac73cbf-b3fa-4aa1-b0b7-ce21a3da9f8e"],
+
+Cell[BoxData["6.`"], "Output",
+ CellChangeTimes->{3.75129781518611*^9, 3.751297909523641*^9},
+ CellLabel->"Out[56]=",ExpressionUUID->"6349d188-0e0e-4289-b770-c96281942e2d"],
+
+Cell[BoxData["5.800000000000004`"], "Output",
+ CellChangeTimes->{3.75129781518611*^9, 3.7512979095248003`*^9},
+ CellLabel->"Out[57]=",ExpressionUUID->"f436e014-fe29-4f95-87c5-0187638a6b9e"]
+}, Open  ]],
+
+Cell["\<\
+Es besteht eine lineare Transformation von X zu Y, n\[ADoubleDot]mlich Y = X \
++ 2.
+Es besteht jedoch keine solche Transformation zwischen X und Z, was man an \
+den Unterschiedlichen Varianzen von X und Z erkennt. \
+\>", "Text",
+ CellChangeTimes->{{3.751297949020074*^9, 3.751298087110332*^9}, {
+  3.75129812305091*^9, 
+  3.751298150350233*^9}},ExpressionUUID->"ce29047f-5d4b-43af-ba67-\
+9bc52216d962"]
+},
+WindowSize->{808, 911},
+WindowMargins->{{Automatic, -944}, {236, Automatic}},
+FrontEndVersion->"11.3 for Linux x86 (64-bit) (March 6, 2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 527, 13, 173, "Text",ExpressionUUID->"d879cf10-afce-489a-b8a6-829dd04914a5"],
+Cell[1088, 35, 1305, 33, 78, "Input",ExpressionUUID->"0e6ee1ee-0b3c-4dd1-8362-31bd16be19d6"],
+Cell[CellGroupData[{
+Cell[2418, 72, 843, 18, 55, "Input",ExpressionUUID->"4442d9ca-096a-4631-a80a-3781f3bc15df"],
+Cell[3264, 92, 372, 6, 35, "Output",ExpressionUUID->"4afd0236-6afd-4bba-824a-0e91ba0f82e0"],
+Cell[3639, 100, 385, 6, 35, "Output",ExpressionUUID->"310e6ff1-ad8c-4237-bd94-4adc95a2a8ad"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4061, 111, 552, 12, 55, "Input",ExpressionUUID->"9ccf6a73-3b52-47e2-b530-d7b9c448b074"],
+Cell[4616, 125, 174, 2, 35, "Output",ExpressionUUID->"2048cf15-9608-44a5-8977-1c9a43fd26e5"],
+Cell[4793, 129, 189, 2, 35, "Output",ExpressionUUID->"15cda863-0fee-492b-b3f4-d7bf1784a3ce"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5019, 136, 560, 14, 55, "Input",ExpressionUUID->"9ac73cbf-b3fa-4aa1-b0b7-ce21a3da9f8e"],
+Cell[5582, 152, 172, 2, 35, "Output",ExpressionUUID->"6349d188-0e0e-4289-b770-c96281942e2d"],
+Cell[5757, 156, 189, 2, 35, "Output",ExpressionUUID->"f436e014-fe29-4f95-87c5-0187638a6b9e"]
+}, Open  ]],
+Cell[5961, 161, 412, 9, 81, "Text",ExpressionUUID->"ce29047f-5d4b-43af-ba67-9bc52216d962"]
+}
+]
+*)
+
