@@ -15,7 +15,7 @@ CREATE OR REPLACE PACKAGE BODY top_customer_pkg AS
            INNER JOIN rental USING (customer_id)
            INNER JOIN inventory USING (inventory_id)
            INNER JOIN film USING (film_id)
-    WHERE length >= 50 AND
+    WHERE length >= 60 AND
       customer_id = cid;
 
     RETURN film_count;
@@ -91,7 +91,7 @@ CREATE OR REPLACE PACKAGE BODY top_customer_pkg AS
            INNER JOIN rental USING (customer_id)
            INNER JOIN inventory USING (inventory_id)
            INNER JOIN film USING (film_id)
-    WHERE length >= 50 AND
+    WHERE length >= 60 AND
           customer_id = cid;
 
     RETURN film_count;
@@ -159,7 +159,7 @@ CREATE OR REPLACE PACKAGE BODY top_customer_pkg AS
            INNER JOIN rental USING (customer_id)
            INNER JOIN inventory USING (inventory_id)
            INNER JOIN film USING (film_id)
-    WHERE length >= 50 AND
+    WHERE length >= 60 AND
           customer_id = cid;
 
     RETURN film_count;
@@ -238,7 +238,7 @@ CREATE OR REPLACE PACKAGE BODY top_customer_pkg AS
            INNER JOIN rental USING (customer_id)
            INNER JOIN inventory USING (inventory_id)
            INNER JOIN film USING (film_id)
-    WHERE length >= 50 AND
+    WHERE length >= 60 AND
           customer_id = cid;
 
     RETURN film_count;
