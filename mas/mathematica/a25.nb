@@ -1,0 +1,239 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      7830,        229]
+NotebookOptionsPosition[      6693,        202]
+NotebookOutlinePosition[      7028,        217]
+CellTagsIndexPosition[      6985,        214]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+Niklas Vest - A25
+9-Felder Tafel mit COV(X,Y)=0 und unabh\[ADoubleDot]ngig(X,Y).\
+\>", "Text",
+ CellChangeTimes->{{3.7522293114007998`*^9, 3.752229315313195*^9}, {
+  3.75223253548708*^9, 
+  3.752232577425414*^9}},ExpressionUUID->"20cdedc4-6429-4b8a-bdeb-\
+1de8f7753366"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"commonDistr", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", 
+       FractionBox["1", "4"], ",", " ", "0", ",", 
+       FractionBox["1", "4"]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["1", "4"], ",", "0", ",", 
+       FractionBox["1", "4"], ",", 
+       FractionBox["2", "4"]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", 
+       FractionBox["1", "4"], ",", "0", ",", 
+       FractionBox["1", "4"]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["1", "4"], ",", 
+       FractionBox["2", "4"], ",", 
+       FractionBox["1", "4"], ",", "1"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"TableForm", "[", 
+  RowBox[{"commonDistr", ",", " ", 
+   RowBox[{"TableHeadings", "\[Rule]", 
+    RowBox[{"{", " ", 
+     RowBox[{"(*", " ", "Y", " ", "*)"}], " ", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<-1\>\"", ",", " ", "\"\<0\>\"", ",", " ", "\"\<1\>\"", ",", " ", 
+        "\"\<\[Sum]\>\""}], "}"}], ",", " ", 
+      RowBox[{"(*", " ", "X", " ", "*)"}], " ", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<0\>\"", ",", " ", "\"\<1\>\"", ",", " ", "\"\<2\>\"", ",", " ", 
+        "\"\<\[Sum]\>\""}], "}"}]}], "}"}]}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.7510015404779997`*^9, 3.751001550990185*^9}, {
+   3.7510019175384083`*^9, 3.751002011580729*^9}, {3.751002065088853*^9, 
+   3.751002107044443*^9}, {3.7510021603165007`*^9, 3.751002203434922*^9}, {
+   3.751002366262054*^9, 3.751002377525055*^9}, {3.751002697175646*^9, 
+   3.751002719928842*^9}, {3.7510029087461433`*^9, 3.751002938861987*^9}, 
+   3.7510030045502863`*^9, 3.751003071569562*^9, {3.751003225373595*^9, 
+   3.7510032337733727`*^9}, {3.7510032856931143`*^9, 3.751003326744021*^9}, {
+   3.7510033585895147`*^9, 3.7510033752924137`*^9}, {3.751003431046488*^9, 
+   3.751003588591794*^9}, {3.752231884579973*^9, 3.752232109384069*^9}, {
+   3.752232181752592*^9, 3.7522321978991327`*^9}, {3.752232270773698*^9, 
+   3.752232283615314*^9}},
+ CellLabel->"In[24]:=",ExpressionUUID->"a3b3c3f4-0419-4d47-bb01-266558b4c877"],
+
+Cell[BoxData[
+ TagBox[
+  TagBox[GridBox[{
+     {
+      StyleBox["\[Null]",
+       ShowStringCharacters->False], 
+      TagBox["\<\"0\"\>",
+       HoldForm], 
+      TagBox["\<\"1\"\>",
+       HoldForm], 
+      TagBox["\<\"2\"\>",
+       HoldForm], 
+      TagBox["\<\"\[Sum]\"\>",
+       HoldForm]},
+     {
+      TagBox["\<\"-1\"\>",
+       HoldForm], "0", 
+      FractionBox["1", "4"], "0", 
+      FractionBox["1", "4"]},
+     {
+      TagBox["\<\"0\"\>",
+       HoldForm], 
+      FractionBox["1", "4"], "0", 
+      FractionBox["1", "4"], 
+      FractionBox["1", "2"]},
+     {
+      TagBox["\<\"1\"\>",
+       HoldForm], "0", 
+      FractionBox["1", "4"], "0", 
+      FractionBox["1", "4"]},
+     {
+      TagBox["\<\"\[Sum]\"\>",
+       HoldForm], 
+      FractionBox["1", "4"], 
+      FractionBox["1", "2"], 
+      FractionBox["1", "4"], "1"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxDividers->{
+     "Columns" -> {False, True, {False}, False}, "ColumnsIndexed" -> {}, 
+      "Rows" -> {False, True, {False}, False}, "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[2.0999999999999996`]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}],
+   {OutputFormsDump`HeadedRows, OutputFormsDump`HeadedColumns}],
+  Function[BoxForm`e$, 
+   TableForm[
+   BoxForm`e$, 
+    TableHeadings -> {{"-1", "0", "1", "\[Sum]"}, {
+      "0", "1", "2", "\[Sum]"}}]]]], "Output",
+ CellChangeTimes->{3.752232075479974*^9, 3.752232113674528*^9, 
+  3.752232286082755*^9},
+ CellLabel->
+  "Out[25]//TableForm=",ExpressionUUID->"df56a9a3-464c-461c-b0bd-\
+dc062e2ea3b2"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"xE", "=", 
+  RowBox[{
+   RowBox[{"1", "\[Times]", 
+    FractionBox["2", "4"]}], "+", 
+   RowBox[{"2", "\[Times]", 
+    FractionBox["1", "4"]}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"yE", "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"-", "1"}], "\[Times]", 
+    FractionBox["1", "4"]}], "+", 
+   RowBox[{"1", "\[Times]", 
+    FractionBox["1", "4"]}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"xyE", "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"-", "1"}], "\[Times]", 
+    FractionBox["1", "4"]}], "+", 
+   RowBox[{"1", "\[Times]", 
+    FractionBox["1", "4"]}]}]}]}], "Input",
+ CellChangeTimes->{{3.752232318425683*^9, 3.7522324781732273`*^9}},
+ CellLabel->"In[29]:=",ExpressionUUID->"9ef32e6d-dd24-4ec2-b555-874b841a229f"],
+
+Cell[BoxData["1"], "Output",
+ CellChangeTimes->{3.7522323628349237`*^9, 3.752232419823571*^9, 
+  3.752232483794202*^9},
+ CellLabel->"Out[29]=",ExpressionUUID->"5212abcb-4d5e-4468-9038-9041d4636beb"],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{3.7522323628349237`*^9, 3.752232419823571*^9, 
+  3.7522324837955437`*^9},
+ CellLabel->"Out[30]=",ExpressionUUID->"e141d8f1-a435-4379-965b-40b9fa3d6608"],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{3.7522323628349237`*^9, 3.752232419823571*^9, 
+  3.7522324837965317`*^9},
+ CellLabel->"Out[31]=",ExpressionUUID->"db2aadc0-a3e0-4b07-a7b0-1155b04baa19"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"xyCov", "=", " ", 
+  RowBox[{"xyE", "-", 
+   RowBox[{"xE", "\[Times]", "yE"}]}]}]], "Input",
+ CellChangeTimes->{{3.752232487902905*^9, 3.752232507470821*^9}},
+ CellLabel->"In[32]:=",ExpressionUUID->"50226689-4c1c-40b8-a0cd-f7f7bd318947"],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{3.75223251081143*^9},
+ CellLabel->"Out[32]=",ExpressionUUID->"4c0d9ca2-23d6-4bf6-b193-cdad8b8ea7f3"]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{274, Automatic}, {88, Automatic}},
+FrontEndVersion->"11.3 for Linux x86 (64-bit) (March 6, 2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 280, 7, 58, "Text",ExpressionUUID->"20cdedc4-6429-4b8a-bdeb-1de8f7753366"],
+Cell[CellGroupData[{
+Cell[863, 31, 2155, 50, 103, "Input",ExpressionUUID->"a3b3c3f4-0419-4d47-bb01-266558b4c877"],
+Cell[3021, 83, 1828, 60, 160, "Output",ExpressionUUID->"df56a9a3-464c-461c-b0bd-dc062e2ea3b2"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4886, 148, 735, 22, 151, "Input",ExpressionUUID->"9ef32e6d-dd24-4ec2-b555-874b841a229f"],
+Cell[5624, 172, 198, 3, 35, "Output",ExpressionUUID->"5212abcb-4d5e-4468-9038-9041d4636beb"],
+Cell[5825, 177, 200, 3, 35, "Output",ExpressionUUID->"e141d8f1-a435-4379-965b-40b9fa3d6608"],
+Cell[6028, 182, 200, 3, 35, "Output",ExpressionUUID->"db2aadc0-a3e0-4b07-a7b0-1155b04baa19"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6265, 190, 261, 5, 31, "Input",ExpressionUUID->"50226689-4c1c-40b8-a0cd-f7f7bd318947"],
+Cell[6529, 197, 148, 2, 35, "Output",ExpressionUUID->"4c0d9ca2-23d6-4bf6-b193-cdad8b8ea7f3"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
