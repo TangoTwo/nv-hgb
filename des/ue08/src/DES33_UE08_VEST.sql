@@ -280,3 +280,7 @@ DROP TRIGGER user_logging_trg;
 DROP TABLE user_logging;
 ALTER TABLE employees
   DROP (date_modified, user_modified);
+
+BEGIN
+  DBMS_OUTPUT.PUT_LINE('hai');
+END;
