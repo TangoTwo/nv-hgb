@@ -3,7 +3,7 @@
 #include <map>
 #include <memory>
 #include <vector>
-#include "Chess.cpp"
+#include "Game.cpp"
 
 class Chessman;
 
