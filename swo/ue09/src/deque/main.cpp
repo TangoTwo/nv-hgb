@@ -9,6 +9,7 @@ int main()
 {
     /*
      * Constructors
+     * (Checked with debugger for simplcitiy)
      */
 
     // construct default
@@ -18,7 +19,7 @@ int main()
     // construct from capacity and value
     deque<int> di3(5, -1);
     // construct from initializer list
-    deque<int> di4 {1,2,3,4,5};
+    deque<int> di4 {1, 2, 3, 4, 5};
 
     // copy from lvalue reference
     deque<int> di5(di4);
@@ -28,6 +29,7 @@ int main()
     /*
      * Operators
      */
+
     // =
     // copy assignment
     di4 = di3;
@@ -73,13 +75,13 @@ int main()
     assert(di1.size() == 0);
     assert(di2.size() == 0);
     assert(di3.size() == 5);
-    assert(deque<int>({1,2,3}).size() == 3); // all other deques had size 5 :/
+    assert(deque<int>({1, 2, 3}).size() == 3); // all other deques had size 5 :/
 
     /*
      * Void bois
      */
     // clear
-    deque<char> ds1 = { 'h', 'e', 'l', 'l', 'o' };
+    deque<char> ds1 = {'h', 'e', 'l', 'l', 'o'};
     ds1.clear();
     assert(ds1.empty());
 
@@ -105,14 +107,35 @@ int main()
     // swap
     swap(di3, di6);
 
+    // comparisons
+    deque<int> cmp1 {1, 2, 3, 4, 5};
+    deque<int> cmp2 {2, 3, 4, 5, 6};
+    assert(cmp1 < cmp2);
+    assert(cmp1 == cmp1);
+    assert(cmp1 != cmp2);
+    assert(cmp1 >= cmp1);
+    assert(cmp1 >= cmp1);
+
     /*
      * Iterators
+     * (Ony rudimentary tests)
      */
     auto it = di6.begin();
     while (it != di6.end()) {
         std::cout << *it << ' ' << std::flush;
         it += 1;
-    } // todo fix first element fail
+    }
+    std::cout << std::endl;
+
+    auto beg = di3.begin();
+    auto mid = di3.begin() + (di3.size() / 2);
+    assert(mid - beg == di3.size() / 2);
+    assert(beg - di3.begin() == 0);
+
+    for (auto el : di3) {
+        std::cout << el << ' ' << std::flush;
+    }
+    std::cout << std::endl;
 
     return 0;
 }
