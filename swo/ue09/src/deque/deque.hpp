@@ -3,8 +3,7 @@
 #include <initializer_list>
 #include <memory>
 
-namespace swo
-{
+namespace swo {
 
 template <typename T>
 class deque;
@@ -14,59 +13,59 @@ class deque;
  * @return True if lhs_i is equal to rhs_i for all i in [0;|lhs|).
  */
 template <typename T>
-bool operator==(deque<T> &lhs, deque<T> &rhs);
+bool operator==(deque <T> &lhs, deque <T> &rhs);
 
 /**
  * @tparam T A type that implements ==.
  * @return True if lhs == rhs returns False.
  */
 template <typename T>
-bool operator!=(deque<T>  &lhs, deque<T>  &rhs);
+bool operator!=(deque <T> &lhs, deque <T> &rhs);
 
 /**
  * @tparam T A type that implements <.
  * @return True if lhs_i < rhs_i for all i in [0;min(|lhs|, |rhs|)).
  */
 template <typename T>
-bool operator<(deque<T>  &lhs, deque<T>  &rhs);
+bool operator<(deque <T> &lhs, deque <T> &rhs);
 
 /**
  * @tparam T A type that implements < and ==.
  * @return Returns true if lhs < rhs or lhs == rhs.
  */
 template <typename T>
-bool operator<=(deque<T>  &lhs, deque<T>  &rhs);
+bool operator<=(deque <T> &lhs, deque <T> &rhs);
 
 /**
  * @tparam T A type that implements < and ==.
  * @return True if no lhs_i <= rhs_i for all i in [0;min(|lhs|, |rhs|)).
  */
 template <typename T>
-bool operator>(deque<T>  &lhs, deque<T>  &rhs);
+bool operator>(deque <T> &lhs, deque <T> &rhs);
 
 /**
  * @tparam T A type that implements < and ==.
  * @return True if lhs is not less than rhs.
  */
 template <typename T>
-bool operator>=(deque<T>  &lhs, deque<T>  &rhs);
+bool operator>=(deque <T> &lhs, deque <T> &rhs);
 
 /**
  * Swaps the contents of lhs and rhs
  */
 template <typename T>
-void swap(deque<T> &lhs, deque<T> &rhs);
+void swap(deque <T> &lhs, deque <T> &rhs);
 
 template <typename T>
 class deque final
 {
 
-  public: // typedefs
+public: // typedefs
     using value_type = T;
     using reference = T &;
     using size_type = std::size_t;
 
-  public: // nested classes
+public: // nested classes
 
     // The iterator is implemented completely in-class
     // because it is hard to define methods of classes
@@ -165,7 +164,7 @@ class deque final
             return !(lhs < rhs);
         }
 
-      public: // methods
+    public: // methods
 
         /**
          * @param n The stride by which to move the iterator forward.
@@ -233,14 +232,14 @@ class deque final
         /**
          * @see iterator#operator++()
          */
-        const iterator operator++(int)
+        iterator operator++(int)
         {
-            iterator cpy {*this};
+            iterator cpy { *this };
             ++*this;
             return cpy;
         }
 
-      protected: // methods
+    protected: // methods
         /**
          * @param parent The container in which the elements referred to
          *        by the iterator are contained.
@@ -248,17 +247,17 @@ class deque final
          * @param begin Whether the iterator was created using a call
          *        to parent#begin.
          */
-        iterator(deque<T> &parent, T *deq_it, bool begin)
-                : _parent {parent}, _current {deq_it}, _first {begin}
-        { }
+        iterator(deque <T> &parent, T *deq_it, bool begin)
+                : _parent { parent }, _current { deq_it }, _first { begin }
+        {}
 
-      protected: // members
+    protected: // members
 
         /**
          * The container in which the elements referred to
          * by the iterator are contained.
          */
-        deque<T> &_parent;
+        deque <T> &_parent;
 
         /**
          * The element the iterator should refer to.
@@ -274,7 +273,7 @@ class deque final
         bool _first;
     };
 
-  public: // methods
+public: // methods
 
     /**
      * Creates an empty deque.
@@ -309,7 +308,7 @@ class deque final
      * Creates a deque from the supplied initializer list.
      * @param il A list of elements to initialize the deque with.
      */
-    deque(std::initializer_list<T> il);
+    deque(std::initializer_list <T> il);
 
     /**
      * Copy assignment operator.
@@ -325,7 +324,7 @@ class deque final
      * Overwrites the queue withe the values contained
      * in the supplied initializer list.
      */
-    deque &operator=(std::initializer_list<T> il);
+    deque &operator=(std::initializer_list <T> il);
 
     /**
      * @param pos The position of the element to fetch from the deque.
@@ -431,7 +430,7 @@ class deque final
      */
     virtual ~deque();
 
-  private: // methods
+private: // methods
 
     /**
      * Frees memory associated with the deque.
@@ -459,36 +458,36 @@ class deque final
      */
     T *_previous(const T *it) const;
 
-  private: // constants
-    const static size_type _INITIAL_CAPACITY {5};
+private: // constants
+    const static size_type _INITIAL_CAPACITY { 5 };
 
-  private: // members
+private: // members
 
     /**
      * The allocation method to use for the deque buffer.
      */
-    std::allocator<T> _alloc {};
+    std::allocator <T> _alloc {};
 
     /**
      * A pointer to the first element in the buffer.
      */
-    T *_buffer {nullptr};
+    T *_buffer { nullptr };
 
     /**
      * The begin of the container. Off-The-End pointer
      * for empty deques.
      */
-    T *_begin {nullptr};
+    T *_begin { nullptr };
 
     /**
      * Apointer to the last element in the container.
      */
-    T *_end {nullptr};
+    T *_end { nullptr };
 
     /**
      * The current capacity of the deque.
      */
-    size_type _capacity {0};
+    size_type _capacity { 0 };
 
     void _prepare_push_back();
 
@@ -496,16 +495,16 @@ class deque final
 };
 
 template <typename T>
-deque<T>::deque() : deque(_INITIAL_CAPACITY)
-{ }
+deque <T>::deque() : deque(_INITIAL_CAPACITY)
+{}
 
 template <typename T>
-deque<T>::deque(size_type capacity)
-        : _capacity {capacity}, _buffer {_alloc.allocate(capacity)}
-{ }
+deque <T>::deque(size_type capacity)
+        : _capacity { capacity }, _buffer { _alloc.allocate(capacity) }
+{}
 
 template <typename T>
-deque<T>::deque(size_type capacity, const T &value)
+deque <T>::deque(size_type capacity, const T &value)
         : deque(capacity)
 {
     _begin = _buffer;
@@ -516,7 +515,7 @@ deque<T>::deque(size_type capacity, const T &value)
 }
 
 template <typename T>
-deque<T>::deque(const deque &other)
+deque <T>::deque(const deque &other)
 {
     _capacity = other._capacity;
     _buffer = _alloc.allocate(other._capacity);
@@ -528,13 +527,13 @@ deque<T>::deque(const deque &other)
 }
 
 template <typename T>
-deque<T>::deque(deque &&other) noexcept
+deque <T>::deque(deque &&other) noexcept
 {
     swap(other);
 }
 
 template <typename T>
-deque<T>::deque(std::initializer_list<T> il)
+deque <T>::deque(std::initializer_list <T> il)
         : deque(il.size())
 {
     _begin = _buffer;
@@ -545,13 +544,13 @@ deque<T>::deque(std::initializer_list<T> il)
 }
 
 template <typename T>
-deque<T>::~deque()
+deque <T>::~deque()
 {
     _deallocate();
 }
 
 template <typename T>
-deque<T> &deque<T>::operator=(const deque &other)
+deque <T> &deque <T>::operator=(const deque &other)
 {
     if (this != &other) {
         // first destruct
@@ -567,27 +566,27 @@ deque<T> &deque<T>::operator=(const deque &other)
 }
 
 template <typename T>
-deque<T> &deque<T>::operator=(deque &&other) noexcept
+deque <T> &deque <T>::operator=(deque &&other) noexcept
 {
     swap(other);
     return *this;
 }
 
 template <typename T>
-deque<T> &deque<T>::operator=(std::initializer_list<T> il)
+deque <T> &deque <T>::operator=(std::initializer_list <T> il)
 {
     *this = deque(std::move(il));
     return *this;
 }
 
 template <typename T>
-auto deque<T>::operator[](size_type pos) -> reference
+auto deque <T>::operator[](size_type pos) -> reference
 {
     return begin()[pos];
 }
 
 template <typename T>
-auto deque<T>::at(size_type pos) -> reference
+auto deque <T>::at(size_type pos) -> reference
 {
     if (pos >= size() || pos < 0) {
         throw std::invalid_argument("Index out of bounds.");
@@ -596,7 +595,7 @@ auto deque<T>::at(size_type pos) -> reference
 }
 
 template <typename T>
-auto deque<T>::back() -> reference
+auto deque <T>::back() -> reference
 {
     T *elem = _end;
     _assert_not_null(elem, "Can not back() an empty container.");
@@ -604,7 +603,7 @@ auto deque<T>::back() -> reference
 }
 
 template <typename T>
-auto deque<T>::front() -> reference
+auto deque <T>::front() -> reference
 {
     T *elem = _begin;
     _assert_not_null(elem, "Can not front() an empty container.");
@@ -612,20 +611,20 @@ auto deque<T>::front() -> reference
 }
 
 template <typename T>
-bool deque<T>::empty() const noexcept
+bool deque <T>::empty() const noexcept
 {
     return _begin == nullptr;
 }
 
 template <typename T>
-auto deque<T>::size() const noexcept -> size_type
+auto deque <T>::size() const noexcept -> size_type
 {
     auto it = _begin;
     // _end points to the last element which must
     // also be accounted for in the total size.
     // Hence for non-empty deques, _size_ starts
     // at 1!
-    size_type size = it == nullptr ? 0 :1;
+    size_type size = it == nullptr ? 0 : 1;
     while (it != _end) {
         size += 1;
         it = _next(it);
@@ -634,7 +633,7 @@ auto deque<T>::size() const noexcept -> size_type
 }
 
 template <typename T>
-void deque<T>::clear() noexcept
+void deque <T>::clear() noexcept
 {
     auto it = _begin;
     while (it != _end) {
@@ -648,21 +647,21 @@ void deque<T>::clear() noexcept
 }
 
 template <typename T>
-void deque<T>::push_back(const T &value)
+void deque <T>::push_back(const T &value)
 {
     _prepare_push_back();
     _alloc.construct(_end, value);
 }
 
 template <typename T>
-void deque<T>::push_back(T &&value)
+void deque <T>::push_back(T &&value)
 {
     _prepare_push_back();
     _alloc.construct(_end, std::move(value));
 }
 
 template <typename T>
-void deque<T>::pop_back()
+void deque <T>::pop_back()
 {
     if (!empty()) {
         _alloc.destroy(_end);
@@ -675,7 +674,7 @@ void deque<T>::pop_back()
 }
 
 template <typename T>
-void deque<T>::push_front(const T &value)
+void deque <T>::push_front(const T &value)
 {
     if (empty()) {
         push_back(value);
@@ -686,7 +685,7 @@ void deque<T>::push_front(const T &value)
 }
 
 template <typename T>
-void deque<T>::push_front(T &&value)
+void deque <T>::push_front(T &&value)
 {
     if (empty()) {
         push_back(std::move(value));
@@ -697,7 +696,7 @@ void deque<T>::push_front(T &&value)
 }
 
 template <typename T>
-void deque<T>::pop_front()
+void deque <T>::pop_front()
 {
     if (!empty()) {
         _alloc.destroy(_begin);
@@ -712,7 +711,7 @@ void deque<T>::pop_front()
 }
 
 template <typename T>
-void deque<T>::_prepare_push_back()
+void deque <T>::_prepare_push_back()
 {
     if (empty()) {
         _begin = _buffer;
@@ -729,7 +728,7 @@ void deque<T>::_prepare_push_back()
 }
 
 template <typename T>
-void deque<T>::_prepare_push_front()
+void deque <T>::_prepare_push_front()
 {
     auto it = _previous(_begin);
     if (it == _end) {
@@ -739,7 +738,7 @@ void deque<T>::_prepare_push_front()
 }
 
 template <typename T>
-void deque<T>::_deallocate()
+void deque <T>::_deallocate()
 {
     if (_buffer != nullptr) {
 
@@ -764,7 +763,7 @@ void deque<T>::_deallocate()
 }
 
 template <typename T>
-void deque<T>::_assert_not_null(const T *p, const std::string &message)
+void deque <T>::_assert_not_null(const T *p, const std::string &message)
 {
     if (p == nullptr) {
         throw std::range_error(message);
@@ -772,7 +771,7 @@ void deque<T>::_assert_not_null(const T *p, const std::string &message)
 }
 
 template <typename T>
-T *deque<T>::_next(const T *it) const
+T *deque <T>::_next(const T *it) const
 {
     // Add 1 to the total difference in elements and keep it
     // in the range [0;_capacity) using modulo.
@@ -780,7 +779,7 @@ T *deque<T>::_next(const T *it) const
 }
 
 template <typename T>
-T *deque<T>::_previous(const T *it) const
+T *deque <T>::_previous(const T *it) const
 {
     // Subtract 1 from the total difference in elements and 
     // keep it in the range [0;_capacity) using modulo.
@@ -788,7 +787,7 @@ T *deque<T>::_previous(const T *it) const
 }
 
 template <typename T>
-void deque<T>::resize(deque::size_type count)
+void deque <T>::resize(deque::size_type count)
 {
     // allocate a second buffer
     T *new_buff = _alloc.allocate(count);
@@ -813,7 +812,7 @@ void deque<T>::resize(deque::size_type count)
 }
 
 template <typename T>
-void deque<T>::swap(deque &other) noexcept
+void deque <T>::swap(deque &other) noexcept
 {
     using std::swap;
     swap(_alloc, other._alloc);
@@ -824,20 +823,20 @@ void deque<T>::swap(deque &other) noexcept
 }
 
 template <typename T>
-auto deque<T>::begin() noexcept -> deque<T>::iterator
+auto deque <T>::begin() noexcept -> deque <T>::iterator
 {
-    return deque<T>::iterator(*this, _begin, true);
+    return deque <T>::iterator(*this, _begin, true);
 }
 
 template <typename T>
-auto deque<T>::end() noexcept -> deque<T>::iterator
+auto deque <T>::end() noexcept -> deque <T>::iterator
 {
     // OTE-Iterator
     return iterator(*this, _next(_end), false);
 }
 
 template <typename T>
-bool operator==(deque<T> &lhs, deque<T> &rhs)
+bool operator==(deque <T> &lhs, deque <T> &rhs)
 {
     bool equal = false;
     if (lhs.size() == rhs.size()) {
@@ -852,13 +851,13 @@ bool operator==(deque<T> &lhs, deque<T> &rhs)
 }
 
 template <typename T>
-bool operator!=(deque<T> &lhs, deque<T> &rhs)
+bool operator!=(deque <T> &lhs, deque <T> &rhs)
 {
     return !(lhs == rhs);
 }
 
 template <typename T>
-bool operator<(deque<T> &lhs, deque<T> &rhs)
+bool operator<(deque <T> &lhs, deque <T> &rhs)
 {
     bool less = true;
     auto lhs_it = lhs.begin();
@@ -870,25 +869,25 @@ bool operator<(deque<T> &lhs, deque<T> &rhs)
 }
 
 template <typename T>
-bool operator<=(deque<T> &lhs, deque<T> &rhs)
+bool operator<=(deque <T> &lhs, deque <T> &rhs)
 {
     return lhs < rhs || lhs == rhs;
 }
 
 template <typename T>
-bool operator>(deque<T> &lhs, deque<T> &rhs)
+bool operator>(deque <T> &lhs, deque <T> &rhs)
 {
     return !(lhs <= rhs);
 }
 
 template <typename T>
-bool operator>=(deque<T> &lhs, deque<T> &rhs)
+bool operator>=(deque <T> &lhs, deque <T> &rhs)
 {
     return !(lhs < rhs);
 }
 
 template <typename T>
-void swap(deque<T> &lhs, deque<T> &rhs)
+void swap(deque <T> &lhs, deque <T> &rhs)
 {
     lhs.swap(rhs);
 }

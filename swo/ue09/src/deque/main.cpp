@@ -13,18 +13,18 @@ int main()
      */
 
     // construct default
-    deque<int> di1;
+    deque <int> di1;
     // construct from capacity
-    deque<int> di2(100);
+    deque <int> di2(100);
     // construct from capacity and value
-    deque<int> di3(5, -1);
+    deque <int> di3(5, -1);
     // construct from initializer list
-    deque<int> di4 {1, 2, 3, 4, 5};
+    deque <int> di4 { 1, 2, 3, 4, 5 };
 
     // copy from lvalue reference
-    deque<int> di5(di4);
+    deque <int> di5(di4);
     // copy from rvalue reference
-    deque<int> di6(std::move(di4));
+    deque <int> di6(std::move(di4));
 
     /*
      * Operators
@@ -36,7 +36,7 @@ int main()
     // move assignment
     di5 = std::move(di6);
     // initializer list assignment
-    di6 = {-2, -1, 0, 1, 2};
+    di6 = { -2, -1, 0, 1, 2 };
 
     // []
     assert(di6[0] == -2);
@@ -75,13 +75,13 @@ int main()
     assert(di1.size() == 0);
     assert(di2.size() == 0);
     assert(di3.size() == 5);
-    assert(deque<int>({1, 2, 3}).size() == 3); // all other deques had size 5 :/
+    assert(deque <int>({ 1, 2, 3 }).size() == 3); // all other deques had size 5 :/
 
     /*
      * Void bois
      */
     // clear
-    deque<char> ds1 = {'h', 'e', 'l', 'l', 'o'};
+    deque <char> ds1 = { 'h', 'e', 'l', 'l', 'o' };
     ds1.clear();
     assert(ds1.empty());
 
@@ -108,8 +108,8 @@ int main()
     swap(di3, di6);
 
     // comparisons
-    deque<int> cmp1 {1, 2, 3, 4, 5};
-    deque<int> cmp2 {2, 3, 4, 5, 6};
+    deque <int> cmp1 { 1, 2, 3, 4, 5 };
+    deque <int> cmp2 { 2, 3, 4, 5, 6 };
     assert(cmp1 < cmp2);
     assert(cmp1 == cmp1);
     assert(cmp1 != cmp2);
